@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jichen/Documents/C/MPI/Assignment/assignment1.c
+stdio.h
+-
+mpi.h
+-
+stdlib.h
+-
+time.h
+-
+assert.h
+-
+string.h
+-
+math.h
+-
+stdbool.h
+-
+
+/usr/local/include/mpi.h
+stddef.h
+-
+cstdint
+-
+stdint.h
+-
+mpio.h
+/usr/local/include/mpio.h
+mpicxx.h
+/usr/local/include/mpicxx.h
+
+/usr/local/include/mpicxx.h
+stdio.h
+-
+
+/usr/local/include/mpio.h
+mpi.h
+/usr/local/include/mpi.h
+

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MPI"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ass">
+				<Option output="/Users/jichen/Documents/C/MPI/cmake-build-debug/ass" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 ass"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ass/fast">
+				<Option output="/Users/jichen/Documents/C/MPI/cmake-build-debug/ass" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 ass/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="parallel">
+				<Option output="/Users/jichen/Documents/C/MPI/cmake-build-debug/parallel" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 parallel"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="parallel/fast">
+				<Option output="/Users/jichen/Documents/C/MPI/cmake-build-debug/parallel" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 parallel/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="chapter">
+				<Option output="/Users/jichen/Documents/C/MPI/cmake-build-debug/chapter" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 chapter"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="chapter/fast">
+				<Option output="/Users/jichen/Documents/C/MPI/cmake-build-debug/chapter" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 chapter/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MPI">
+				<Option output="/Users/jichen/Documents/C/MPI/cmake-build-debug/MPI" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 MPI"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MPI/fast">
+				<Option output="/Users/jichen/Documents/C/MPI/cmake-build-debug/MPI" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jichen/Documents/C/MPI/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 MPI/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jichen/Documents/C/MPI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/jichen/Documents/C/MPI/Assignment/assignment1.c">
+			<Option target="ass"/>
+		</Unit>
+		<Unit filename="/Users/jichen/Documents/C/MPI/Chapter3/mpiex.c">
+			<Option target="chapter"/>
+		</Unit>
+		<Unit filename="/Users/jichen/Documents/C/MPI/MPIprogram/MPI_Parallel.c">
+			<Option target="parallel"/>
+		</Unit>
+		<Unit filename="/Users/jichen/Documents/C/MPI/MPIprogram/MPI_Parallel.h">
+			<Option target="parallel"/>
+		</Unit>
+		<Unit filename="/Users/jichen/Documents/C/MPI/main.c">
+			<Option target="MPI"/>
+		</Unit>
+		<Unit filename="/Users/jichen/Documents/C/MPI/tmpi_rank.c">
+			<Option target="MPI"/>
+		</Unit>
+		<Unit filename="/Users/jichen/Documents/C/MPI/tmpi_rank.h">
+			<Option target="MPI"/>
+		</Unit>
+		<Unit filename="/Users/jichen/Documents/C/MPI/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
