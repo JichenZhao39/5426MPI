@@ -19,8 +19,8 @@ int main(void){
    red or blue (in the first row or column) just moved out = 4
     */
 
-    int n=8,MAX_ITRS,t,c;
-    int grid[n][n]; 	/* grid[row][col] */
+    int n,MAX_ITRS,t,c;
+    int **grid; 	/* grid[row][col] */
     bool finished = false;
     int n_itrs = 0;
     int redcount, bluecount;
@@ -28,7 +28,7 @@ int main(void){
     srand((unsigned)time(0));//we use time as our random number seeds
 
 
-
+    //get user input
     printf("Please enter cell grid size:\n");
     scanf("%d",&n);
     //fflush(stdin);
@@ -39,6 +39,12 @@ int main(void){
     scanf("%d",&c);
     printf("Please enter maximum number of iterations:\n");
     scanf("%d",&MAX_ITRS);
+
+    //dynamic apply 2D array
+    grid = (int **)malloc(sizeof(int *) * n);
+    for (int i = 0; i < n; i++) {
+        grid[i] = (int *)malloc(sizeof(int) * n);
+    }
 
     //initialize the board. borad_init();
     for (int i = 0; i < n; i++) {
@@ -95,7 +101,7 @@ int main(void){
 
         /*// blue color movement*/
         for (i = 0;i<n;i++){
-            //when
+            //when column 0 &1
             if (grid[0][i] == 2 && grid[1][i] == 0){
 
                 grid[0][i] = 4; //move out
