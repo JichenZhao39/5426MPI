@@ -124,6 +124,19 @@ ass/fast:
 .PHONY : ass/fast
 
 #=============================================================================
+# Target rules for targets named threads
+
+# Build rule for target.
+threads: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 threads
+.PHONY : threads
+
+# fast build rule for target.
+threads/fast:
+	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/build
+.PHONY : threads/fast
+
+#=============================================================================
 # Target rules for targets named parallel
 
 # Build rule for target.
@@ -243,6 +256,33 @@ MPIprogram/MPI_Parallel.c.s:
 	$(MAKE) -f CMakeFiles/parallel.dir/build.make CMakeFiles/parallel.dir/MPIprogram/MPI_Parallel.c.s
 .PHONY : MPIprogram/MPI_Parallel.c.s
 
+PThreads/Pthread_ex.o: PThreads/Pthread_ex.c.o
+
+.PHONY : PThreads/Pthread_ex.o
+
+# target to build an object file
+PThreads/Pthread_ex.c.o:
+	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/PThreads/Pthread_ex.c.o
+.PHONY : PThreads/Pthread_ex.c.o
+
+PThreads/Pthread_ex.i: PThreads/Pthread_ex.c.i
+
+.PHONY : PThreads/Pthread_ex.i
+
+# target to preprocess a source file
+PThreads/Pthread_ex.c.i:
+	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/PThreads/Pthread_ex.c.i
+.PHONY : PThreads/Pthread_ex.c.i
+
+PThreads/Pthread_ex.s: PThreads/Pthread_ex.c.s
+
+.PHONY : PThreads/Pthread_ex.s
+
+# target to generate assembly for a file
+PThreads/Pthread_ex.c.s:
+	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/PThreads/Pthread_ex.c.s
+.PHONY : PThreads/Pthread_ex.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -306,6 +346,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ass"
+	@echo "... threads"
 	@echo "... parallel"
 	@echo "... chapter"
 	@echo "... MPI"
@@ -318,6 +359,9 @@ help:
 	@echo "... MPIprogram/MPI_Parallel.o"
 	@echo "... MPIprogram/MPI_Parallel.i"
 	@echo "... MPIprogram/MPI_Parallel.s"
+	@echo "... PThreads/Pthread_ex.o"
+	@echo "... PThreads/Pthread_ex.i"
+	@echo "... PThreads/Pthread_ex.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

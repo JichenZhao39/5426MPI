@@ -399,6 +399,119 @@ void pivalue(void){
     }
     MPI_Finalize();
 }
+
+#define arysize 256
+#define arysize2 (arysize/2)
+//使用MPI提供的向量数据类型和虚拟进程拓扑来重新实现Jacobi迭代
+int Jacobi_iter(void){
+
+    int n,myid,numprocs,nsteps = 10;
+    //定义局部数组的大小，包含边界空间
+    float a[arysize2+2][arysize2+2],b[arysize2+2][arysize2+2];
+    double starttime,endtime;
+    int col_tag,row_tag,send_col,send_row,recv_col,recv_row;
+    int col_neighbor,row_neighbor;
+    MPI_Comm comm2d;
+    MPI_Datatype newtype;
+    int right,left,down,top,top_bound,left_bound,down_bound,right_bound;
+    int periods[2];
+    int dims[2],begin_row,end_row;
+    MPI_Status status;
+    MPI_Init(NULL,NULL);
+    dims[0] = 2;
+    dims[1] = 2;
+    periods[0] = 0;
+    periods[1] = 0;
+
+    //定义虚拟进程拓扑，他是一个2x2的网格，得到的包含进程拓扑信息的新的通信域是comm2d
+    MPI_Cart_create(MPI_COMM_WORLD,2,dims,periods,0,&comm2d);
+    MPI_Comm_rank(MPI_COMM_WORLD,&myid);
+    //定义向量数据类型来表示一列
+    MPI_Type_vector(arysize2,1,arysize2+2,MPI_FLOAT,&newtype);
+    //新类型的递交
+    MPI_Type_commit(&newtype);
+    //得到当前进程左右两侧的进程标识
+    MPI_Cart_shift(comm2d,0,1,&left,&right);
+    //得到当前进程上下方的进程标识
+    MPI_Cart_shift(comm2d,1,1,&down,&top);
+
+    //下面的程序为数组赋初值
+    for (int i = 0; i < arysize2; i++) {
+        for (int j = 0; j < arysize2+2; j++) {
+            a[i][j] = 0.0;
+        }
+    }
+    if (top == MPI_PROC_NULL){
+        for (int i = 0; i < arysize2+2; i++) {
+            a[1][i] = 8.0;
+        }
+    }
+    if (down == MPI_PROC_NULL){
+        for (int i = 0; i < arysize2+2; i++) {
+            a[arysize2][i] = 8.0;
+        }
+    }
+    if (left == MPI_PROC_NULL){
+        for (int i = 0; i < arysize2+2; i++) {
+            a[i][1] = 8.0;
+        }
+    }
+    if (right == MPI_PROC_NULL){
+        for (int i = 0; i < arysize2+2; i++) {
+            a[i][arysize2] = 8.0;
+        }
+    }
+    col_tag = 5;
+    row_tag = 6;
+    printf("Laplace Jacobi#C(BLOCK,BLOCK)#myid = %d #step = %d #total"
+           "arysize = %d * %d\n",myid,nsteps,arysize,arysize);
+
+    top_bound = 1;
+    left_bound = 1;
+    down_bound = arysize2;
+    right_bound = arysize2;
+
+    if (top == MPI_PROC_NULL)
+        top_bound = 2;
+    if (left == MPI_PROC_NULL)
+        left_bound = 2;
+    if (down == MPI_PROC_NULL)
+        down_bound = arysize2 - 1;
+    if (right == MPI_PROC_NULL)
+        left_bound = arysize2 - 1;
+    starttime = MPI_Wtime();
+    for (int n = 0; n < nsteps; n++) {
+        //向上数据传输
+        MPI_Sendrecv(&a[1][1],arysize2,MPI_FLOAT,top,row_tag,
+                &a[arysize2+1][1],arysize2,MPI_FLOAT,down,row_tag,comm2d,&status);
+        //向下数据传送
+        MPI_Sendrecv(&a[arysize2][1],arysize2,MPI_FLOAT,down,row_tag,
+                &a[0][1],arysize2,MPI_FLOAT,top,row_tag,comm2d,&status);
+        //向左数据传送
+        MPI_Sendrecv(&a[1][1],1,newtype,left,col_tag,&a[1][arysize2+1],1,
+                newtype,right,col_tag,comm2d,&status);
+        //向右数据传送
+        MPI_Sendrecv(&a[1][arysize2],1,newtype,right,col_tag,&a[1][0],
+                1,newtype,left,col_tag,comm2d,&status);
+        for (int i = left_bound; i < right_bound; i++) {
+            for (int j = top_bound; j < down_bound; j++) {
+                b[i][j] = (a[i][j+1]+a[i][j-1]+a[i+1][j]+a[i-1][j])*0.25;
+            }
+        }
+        for (int i = left_bound; i < right_bound; i++) {
+            for (int j = top_bound; j < down_bound; j++) {
+                a[i][j] = b[i][j];
+            }
+        }
+    }
+    endtime = MPI_Wtime();
+    printf("Elapse time = %f\n",endtime - starttime);
+    MPI_Type_free(&newtype);
+    MPI_Comm_free(&comm2d);
+    MPI_Finalize();
+    return 0;
+
+}
 int main(void){
     //ex3_1();
     //ex3_3_1();
@@ -408,7 +521,8 @@ int main(void){
     //scatter();
     //all_to_all();
     //ex45();
-    pivalue();
+    //pivalue();
+    Jacobi_iter();
 
     return 0;
 }

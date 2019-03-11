@@ -16,13 +16,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bfda900e-34e8-4672-b1ef-324257ab9b64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment/assignment1.c" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment/assignment1.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chapter3/mpiex" beforeDir="false" afterPath="$PROJECT_DIR$/Chapter3/mpiex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chapter3/mpiex.c" beforeDir="false" afterPath="$PROJECT_DIR$/Chapter3/mpiex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ass.dir/Assignment/assignment1.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ass.dir/Assignment/assignment1.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/chapter.dir/Chapter3/mpiex.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/chapter.dir/Chapter3/mpiex.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ass" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/chapter" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,25 +31,27 @@
     <session id="496190400">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="23" />
           <entry key="project.open.time.0" value="8" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="8" />
-          <entry key="project.open.time.4" value="5" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.open.time.4" value="6" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="30886" />
+          <entry key="c" value="32645" />
           <entry key="h" value="95" />
-          <entry key="txt" value="52" />
+          <entry key="txt" value="77" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="52" />
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="30980" />
+          <entry key="ObjectiveC" value="32739" />
+          <entry key="PLAIN_TEXT" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -83,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Chapter3/mpiex.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-620">
-              <caret line="259" column="58" selection-start-line="259" selection-start-column="21" selection-end-line="259" selection-end-column="58" />
+            <state relative-caret-position="193">
+              <caret line="524" column="18" selection-start-line="524" selection-start-column="18" selection-end-line="524" selection-end-column="18" />
               <folding>
                 <element signature="e#39#57#0" expanded="true" />
               </folding>
@@ -95,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assignment/assignment1.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+            <state relative-caret-position="720">
+              <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -141,8 +138,8 @@
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/MPIprogram/MPI_Parallel.c" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/Chapter3/mpiex.c" />
         <option value="$PROJECT_DIR$/Assignment/assignment1.c" />
+        <option value="$PROJECT_DIR$/Chapter3/mpiex.c" />
       </list>
     </option>
   </component>
@@ -153,8 +150,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="237" />
-    <option name="y" value="27" />
+    <option name="x" value="320" />
+    <option name="y" value="62" />
     <option name="width" value="1120" />
     <option name="height" value="782" />
   </component>
@@ -245,12 +242,18 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="threads" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MPI" TARGET_NAME="threads" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MPI" RUN_TARGET_NAME="threads">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Build All" />
       <item itemvalue="Application.chapter" />
       <item itemvalue="Application.MPI" />
       <item itemvalue="Application.parallel" />
       <item itemvalue="Application.ass" />
+      <item itemvalue="Application.threads" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -283,12 +286,22 @@
       <workItem from="1552001613887" duration="10020000" />
       <workItem from="1552088809310" duration="2016000" />
       <workItem from="1552090982691" duration="6305000" />
-      <workItem from="1552259896002" duration="1499000" />
+      <workItem from="1552259896002" duration="2297000" />
+      <workItem from="1552305955925" duration="2304000" />
+      <workItem from="1552346604636" duration="2000" />
     </task>
+    <task id="LOCAL-00001" summary="dynamic apply 2D array">
+      <created>1552261766655</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1552261766655</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83641000" />
+    <option name="totallyTimeSpent" value="86745000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -300,22 +313,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="237" y="27" width="1120" height="782" extended-state="0" />
+    <frame x="539" y="62" width="1120" height="782" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49902913" visible="true" weight="0.21799628" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49902913" visible="true" weight="0.22541744" />
       <window_info id="Structure" order="1" sideWeight="0.5009709" side_tool="true" weight="0.21953897" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34492755" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29275364" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32753623" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.5115942" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.5855073" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289855" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32753623" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32608697" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -329,6 +342,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dynamic apply 2D array" />
+    <option name="LAST_COMMIT_MESSAGE" value="dynamic apply 2D array" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tmpi_rank.h">
@@ -355,6 +372,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment/assignment1.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MPIprogram/MPI_Parallel.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4560">
@@ -377,18 +401,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Chapter3/mpiex.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-620">
-          <caret line="259" column="58" selection-start-line="259" selection-start-column="21" selection-end-line="259" selection-end-column="58" />
+        <state relative-caret-position="193">
+          <caret line="524" column="18" selection-start-line="524" selection-start-column="18" selection-end-line="524" selection-end-column="18" />
           <folding>
             <element signature="e#39#57#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment/assignment1.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
         </state>
       </provider>
     </entry>
