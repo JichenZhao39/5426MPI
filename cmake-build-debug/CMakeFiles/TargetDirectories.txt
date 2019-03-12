@@ -1,6 +1,7 @@
 /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/ass.dir
+/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/threads.dir
 /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/parallel.dir
 /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/chapter.dir
 /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/MPI.dir
