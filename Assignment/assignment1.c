@@ -47,23 +47,6 @@ int main(void){
         grid[i] = (int *)malloc(sizeof(int) * n);
     }
 
-    //dynamic apply 2D array
-    tile1 = (int **)malloc(sizeof(int *) * n/2);
-    for (int i = 0; i < n/2; i++) {
-        tile1[i] = (int *)malloc(sizeof(int) * n/2);
-    }
-    tile2 = (int **)malloc(sizeof(int *) * n/2);
-    for (int i = 0; i < n/2; i++) {
-        tile2[i] = (int *)malloc(sizeof(int) * n/2);
-    }
-    tile3 = (int **)malloc(sizeof(int *) * n/2);
-    for (int i = 0; i < n/2; i++) {
-        tile3[i] = (int *)malloc(sizeof(int) * n/2);
-    }
-    tile4 = (int **)malloc(sizeof(int *) * n/2);
-    for (int i = 0; i < n/2; i++) {
-        tile4[i] = (int *)malloc(sizeof(int) * n/2);
-    }
 
 
     //initialize the board. borad_init();
@@ -78,10 +61,9 @@ int main(void){
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; ++j) {
-            if (j % n == 0)
-                puts("\n");
             printf("%d",grid[i][j]);
         }
+        printf("\n");
     }
     //printf("\n%d %d %d %d",n,t,c,MAX_ITRS);
 
@@ -143,11 +125,12 @@ int main(void){
         }
 
 
-        int count_red,count_blue;
-        float red_percentage,blue_percentage;
+        int count_red=0,count_blue=0;
+        float red_percentage=0.0,blue_percentage=0.0;
         //count the number in each tile
-        for (int i = 0; i < n/t; i++) {
-            for (int j = 0; j < n/t; j++) {
+        for (int i = 0; i < (int)n/t; i++) {
+            for (int j = 0; j < (int)n/t; j++) {
+                //grid of tile
                 for (int k = t * i; k < (t+i*t); k++) {
                     for (int l = t*j; l < (t+j*t); l++) {
                         if (grid[k][l] == 1)
@@ -156,41 +139,36 @@ int main(void){
                             count_blue++;
                     }
                 }
-                red_percentage = (float)count_red/(t*t);
-                blue_percentage = (float)count_blue/(t*t);
-                if (red_percentage > c || blue_percentage > c){
-
+                red_percentage = (float)count_red * 100 / (t*t);
+                blue_percentage = (float)count_blue * 100 / (t*t);
+                //printf("\n%f,%f......\n",red_percentage,blue_percentage);
+                //check if the computation can be terminated
+                if ((red_percentage >= c) || (blue_percentage >= c)){
+                    for (int k = t * i; k < (t+i*t); k++) {
+                        for (int l = t * j; l < (t + j * t); l++) {
+                            printf("%d", grid[k][l]);//print out the title position
+                        }
+                        printf("\n");
+                    }
+                    printf("finished.\n");
+                    printf("%d",n_itrs);
+                    //break;
+                    return 0;
                 }
+                count_red = 0;
+                count_blue = 0;
             }
         }
-
-
 
 
     }
     printf("\n************************");
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; ++j) {
-            if (j % n == 0)
-                puts("\n");
             printf("%d",grid[i][j]);
         }
+        printf("\n");
     }
-
-    printf("\n^^^^^^^^^^^^^^^^^^^^^^^^");
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; ++j) {
-            if (j % 3 == 0)
-                puts("\n");
-            printf("%d",tile4[i] = grid[i]);
-        }
-    }
-    printf("\n%d",2%4);
-
-
-
-
-
 
 
     return 0;
