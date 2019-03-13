@@ -15,16 +15,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfda900e-34e8-4672-b1ef-324257ab9b64" name="Default Changelist" comment="pthread practice">
-      <change afterPath="$PROJECT_DIR$/PThreads/errors.h" afterDir="false" />
+    <list default="true" id="bfda900e-34e8-4672-b1ef-324257ab9b64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment/assignment1.c" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment/assignment1.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PThreads/Pthread_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/PThreads/Pthread_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ass.dir/Assignment/assignment1.c.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/ass" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello" beforeDir="false" afterPath="$PROJECT_DIR$/hello" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,17 +43,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="35116" />
+          <entry key="c" value="35979" />
           <entry key="h" value="95" />
-          <entry key="txt" value="128" />
+          <entry key="txt" value="185" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="65" />
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="35210" />
-          <entry key="PLAIN_TEXT" value="63" />
+          <entry key="ObjectiveC" value="36073" />
+          <entry key="PLAIN_TEXT" value="120" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -114,8 +109,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assignment/assignment1.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="161" selection-start-line="161" selection-end-line="161" />
+            <state relative-caret-position="211">
+              <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -167,8 +162,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="138" />
-    <option name="y" value="30" />
+    <option name="x" value="217" />
+    <option name="y" value="23" />
     <option name="width" value="960" />
     <option name="height" value="782" />
   </component>
@@ -317,7 +312,7 @@
       <workItem from="1552305955925" duration="2304000" />
       <workItem from="1552346604636" duration="2000" />
       <workItem from="1552346613043" duration="10731000" />
-      <workItem from="1552431623002" duration="4658000" />
+      <workItem from="1552431623002" duration="11796000" />
     </task>
     <task id="LOCAL-00001" summary="dynamic apply 2D array">
       <created>1552261766655</created>
@@ -340,11 +335,25 @@
       <option name="project" value="LOCAL" />
       <updated>1552376477315</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="count the number in each tile">
+      <created>1552439358838</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1552439358838</updated>
+    </task>
+    <task id="LOCAL-00005" summary="count the number in each tile and print out tile position">
+      <created>1552453810732</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1552453810732</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102134000" />
+    <option name="totallyTimeSpent" value="109272000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -356,14 +365,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="138" y="30" width="960" height="782" extended-state="0" />
+    <frame x="217" y="23" width="960" height="782" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49902913" visible="true" weight="0.21023965" />
-      <window_info id="Structure" order="1" sideWeight="0.5009709" side_tool="true" weight="0.21953897" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4979253" visible="true" weight="0.21023965" />
+      <window_info id="Structure" order="1" sideWeight="0.5020747" side_tool="true" weight="0.21023965" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30144927" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28115943" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -371,7 +380,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.29759037" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.3289855" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289855" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32753623" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32463768" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -390,7 +399,9 @@
     <MESSAGE value="dynamic apply 2D array" />
     <MESSAGE value="pthread practice" />
     <MESSAGE value="threads start routine" />
-    <option name="LAST_COMMIT_MESSAGE" value="threads start routine" />
+    <MESSAGE value="count the number in each tile" />
+    <MESSAGE value="count the number in each tile and print out tile position" />
+    <option name="LAST_COMMIT_MESSAGE" value="count the number in each tile and print out tile position" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tmpi_rank.h">
@@ -414,6 +425,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+          <folding>
+            <element signature="e#39#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -463,8 +477,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assignment/assignment1.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="161" selection-start-line="161" selection-end-line="161" />
+        <state relative-caret-position="211">
+          <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
         </state>
       </provider>
     </entry>

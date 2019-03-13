@@ -10,6 +10,25 @@
 #include <math.h>
 #include <stdbool.h>
 
+//initialize the board
+void board_init(int **grid,n){
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            int rn = rand() % 3; //random number produce our grid
+            grid[i][j] = rn;
+            //printf(grid[i][j]);
+        }
+    }
+}
+
+void grid_print(int **grid,n){
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; ++j) {
+            printf("%d ",grid[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 
 int main(void){
@@ -48,32 +67,18 @@ int main(void){
     }
 
 
-
-    //initialize the board. borad_init();
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            int rn = rand() % 3; //random number produce our grid
-            grid[i][j] = rn;
-            //printf(grid[i][j],"\n");
-        }
-    }
-
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; ++j) {
-            printf("%d",grid[i][j]);
-        }
-        printf("\n");
-    }
+    //initialize the board. board_init();
+    printf("\n##########Board Initialize##########\n");
+    board_init(grid,n);
+    //pint out initialize board
+    grid_print(grid,n);
+    printf("\n##########Board Initialize##########\n");
     //printf("\n%d %d %d %d",n,t,c,MAX_ITRS);
-
 
 
     while (!finished && n_itrs < MAX_ITRS){
 
         // count the number of red and blue in each tile and check if the computation can be terminated
-
-        //...
 
         n_itrs++;
 
@@ -124,10 +129,9 @@ int main(void){
                 grid[0][i] = 0;
         }
 
-
+        //count the number in each tile
         int count_red=0,count_blue=0;
         float red_percentage=0.0,blue_percentage=0.0;
-        //count the number in each tile
         for (int i = 0; i < (int)n/t; i++) {
             for (int j = 0; j < (int)n/t; j++) {
                 //grid of tile
@@ -141,18 +145,25 @@ int main(void){
                 }
                 red_percentage = (float)count_red * 100 / (t*t);
                 blue_percentage = (float)count_blue * 100 / (t*t);
-                //printf("\n%f,%f......\n",red_percentage,blue_percentage);
+                //printf("\n%f.......%f\n",red_percentage,blue_percentage);
                 //check if the computation can be terminated
-                if ((red_percentage >= c) || (blue_percentage >= c)){
+                if ((red_percentage >= (float)c) || (blue_percentage >= (float)c)){
+                    printf("\nTerminated tile colour\n");
                     for (int k = t * i; k < (t+i*t); k++) {
                         for (int l = t * j; l < (t + j * t); l++) {
-                            printf("%d", grid[k][l]);//print out the title position
+                            printf("%d", grid[k][l]);//print out the title position, and the colour and its percentage
                         }
                         printf("\n");
                     }
-                    printf("finished.\n");
-                    printf("%d",n_itrs);
+                    printf("Program Terminated at %d row,%d column.\n",t*i+1,t*j+1);
+                    //printf("\n%f.......%f.....%f\n",red_percentage,blue_percentage,(float)c);
+                    if (red_percentage >= (float)c)
+                        printf("Red colour cell percentage more than threshold: %f%% > %f%%(threshold)",red_percentage,(float)c);
+                    if (blue_percentage >= (float)c)
+                        printf("Blue colour cell percentage more than threshold: %f%% > %f%%(threshold)",blue_percentage,(float)c);
+                    printf("\nTerminated at iteration %d\n",n_itrs);
                     //break;
+                    grid_print(grid,n);
                     return 0;
                 }
                 count_red = 0;
@@ -160,16 +171,7 @@ int main(void){
             }
         }
 
-
     }
-    printf("\n************************");
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; ++j) {
-            printf("%d",grid[i][j]);
-        }
-        printf("\n");
-    }
-
 
     return 0;
 }
