@@ -25,6 +25,7 @@ int main(void){
     int n_itrs = 0;
     int redcount, bluecount;
     int i, j;
+    int **tile1,**tile2,**tile3,**tile4;
     srand((unsigned)time(0));//we use time as our random number seeds
 
 
@@ -46,6 +47,25 @@ int main(void){
         grid[i] = (int *)malloc(sizeof(int) * n);
     }
 
+    //dynamic apply 2D array
+    tile1 = (int **)malloc(sizeof(int *) * n/2);
+    for (int i = 0; i < n/2; i++) {
+        tile1[i] = (int *)malloc(sizeof(int) * n/2);
+    }
+    tile2 = (int **)malloc(sizeof(int *) * n/2);
+    for (int i = 0; i < n/2; i++) {
+        tile2[i] = (int *)malloc(sizeof(int) * n/2);
+    }
+    tile3 = (int **)malloc(sizeof(int *) * n/2);
+    for (int i = 0; i < n/2; i++) {
+        tile3[i] = (int *)malloc(sizeof(int) * n/2);
+    }
+    tile4 = (int **)malloc(sizeof(int *) * n/2);
+    for (int i = 0; i < n/2; i++) {
+        tile4[i] = (int *)malloc(sizeof(int) * n/2);
+    }
+
+
     //initialize the board. borad_init();
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -58,7 +78,7 @@ int main(void){
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; ++j) {
-            if (j % 8 == 0)
+            if (j % n == 0)
                 puts("\n");
             printf("%d",grid[i][j]);
         }
@@ -122,15 +142,51 @@ int main(void){
                 grid[0][i] = 0;
         }
 
+
+        int count_red,count_blue;
+        float red_percentage,blue_percentage;
+        //count the number in each tile
+        for (int i = 0; i < n/t; i++) {
+            for (int j = 0; j < n/t; j++) {
+                for (int k = t * i; k < (t+i*t); k++) {
+                    for (int l = t*j; l < (t+j*t); l++) {
+                        if (grid[k][l] == 1)
+                            count_red++;
+                        if (grid[k][l] == 2)
+                            count_blue++;
+                    }
+                }
+                red_percentage = (float)count_red/(t*t);
+                blue_percentage = (float)count_blue/(t*t);
+                if (red_percentage > c || blue_percentage > c){
+
+                }
+            }
+        }
+
+
+
+
     }
     printf("\n************************");
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; ++j) {
-            if (j % 8 == 0)
+            if (j % n == 0)
                 puts("\n");
             printf("%d",grid[i][j]);
         }
     }
+
+    printf("\n^^^^^^^^^^^^^^^^^^^^^^^^");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; ++j) {
+            if (j % 3 == 0)
+                puts("\n");
+            printf("%d",tile4[i] = grid[i]);
+        }
+    }
+    printf("\n%d",2%4);
+
 
 
 
