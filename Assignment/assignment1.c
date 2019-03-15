@@ -20,7 +20,7 @@ void board_init(int **grid,n){
         }
     }
 }
-
+//print grid colour
 void grid_print(int **grid,n){
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; ++j) {
@@ -29,7 +29,6 @@ void grid_print(int **grid,n){
         printf("\n");
     }
 }
-
 
 int main(void){
     /*
@@ -138,11 +137,12 @@ int main(void){
                 for (int k = t * i; k < (t+i*t); k++) {
                     for (int l = t*j; l < (t+j*t); l++) {
                         if (grid[k][l] == 1)
-                            count_red++;
+                            count_red++;    //count the number of red colour
                         if (grid[k][l] == 2)
-                            count_blue++;
+                            count_blue++;   //count the number of blue colour
                     }
                 }
+                //get the red/blue percentage
                 red_percentage = (float)count_red * 100 / (t*t);
                 blue_percentage = (float)count_blue * 100 / (t*t);
                 //printf("\n%f.......%f\n",red_percentage,blue_percentage);
@@ -158,9 +158,9 @@ int main(void){
                     printf("Program Terminated at %d row,%d column.\n",t*i+1,t*j+1);
                     //printf("\n%f.......%f.....%f\n",red_percentage,blue_percentage,(float)c);
                     if (red_percentage >= (float)c)
-                        printf("Red colour cell percentage more than threshold: %f%% > %f%%(threshold)",red_percentage,(float)c);
+                        printf("Red colour cell percentage has more than threshold: %f%% > %f%%(threshold)",red_percentage,(float)c);
                     if (blue_percentage >= (float)c)
-                        printf("Blue colour cell percentage more than threshold: %f%% > %f%%(threshold)",blue_percentage,(float)c);
+                        printf("Blue colour cell percentage has more than threshold: %f%% > %f%%(threshold)",blue_percentage,(float)c);
                     printf("\nTerminated at iteration %d\n",n_itrs);
                     //break;
                     grid_print(grid,n);

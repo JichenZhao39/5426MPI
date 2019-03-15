@@ -22,6 +22,7 @@ void Hello(void){
     int nproc,me;
     int type = 1;
     int buffer[2],node;
+    MPI_Init(NULL,NULL);
     MPI_Status status;
     MPI_Comm_size(MPI_COMM_WORLD,&nproc);
     MPI_Comm_rank(MPI_COMM_WORLD,&me);
@@ -178,6 +179,7 @@ int main(int argc,char *argv[]){
     }
     MPI_Finalize();*/
 
+    /*
     int myid,numprocs,n,i,j,rc;
     float a[totalsize][mysize+2],b[totalsize][mysize+2],tmp[mysize][totalsize],
     c[totalsize][totalsize];    //除分块大小外，还包括左右两边各一列
@@ -303,7 +305,8 @@ int main(int argc,char *argv[]){
         }
         fprintf(stderr,"\n");
     }
-    MPI_Finalize();
+    MPI_Finalize();*/
+    Hello();
 
 
     //return 0;

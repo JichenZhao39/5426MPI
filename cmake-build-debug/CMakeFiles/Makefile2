@@ -65,6 +65,154 @@ CMAKE_SOURCE_DIR = /Users/jichen/Documents/C/MPI
 CMAKE_BINARY_DIR = /Users/jichen/Documents/C/MPI/cmake-build-debug
 
 #=============================================================================
+# Target rules for target CMakeFiles/linuxex.dir
+
+# All Build rule for target.
+CMakeFiles/linuxex.dir/all:
+	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/depend
+	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=10,11 "Built target linuxex"
+.PHONY : CMakeFiles/linuxex.dir/all
+
+# Include target in all.
+all: CMakeFiles/linuxex.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/linuxex.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/linuxex.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/linuxex.dir/rule
+
+# Convenience name for target.
+linuxex: CMakeFiles/linuxex.dir/rule
+
+.PHONY : linuxex
+
+# clean rule for target.
+CMakeFiles/linuxex.dir/clean:
+	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/clean
+.PHONY : CMakeFiles/linuxex.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/linuxex.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/threads.dir
+
+# All Build rule for target.
+CMakeFiles/threads.dir/all:
+	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/depend
+	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=14,15 "Built target threads"
+.PHONY : CMakeFiles/threads.dir/all
+
+# Include target in all.
+all: CMakeFiles/threads.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/threads.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/threads.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/threads.dir/rule
+
+# Convenience name for target.
+threads: CMakeFiles/threads.dir/rule
+
+.PHONY : threads
+
+# clean rule for target.
+CMakeFiles/threads.dir/clean:
+	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/clean
+.PHONY : CMakeFiles/threads.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/threads.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/chapter.dir
+
+# All Build rule for target.
+CMakeFiles/chapter.dir/all:
+	$(MAKE) -f CMakeFiles/chapter.dir/build.make CMakeFiles/chapter.dir/depend
+	$(MAKE) -f CMakeFiles/chapter.dir/build.make CMakeFiles/chapter.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=8,9 "Built target chapter"
+.PHONY : CMakeFiles/chapter.dir/all
+
+# Include target in all.
+all: CMakeFiles/chapter.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/chapter.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/chapter.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/chapter.dir/rule
+
+# Convenience name for target.
+chapter: CMakeFiles/chapter.dir/rule
+
+.PHONY : chapter
+
+# clean rule for target.
+CMakeFiles/chapter.dir/clean:
+	$(MAKE) -f CMakeFiles/chapter.dir/build.make CMakeFiles/chapter.dir/clean
+.PHONY : CMakeFiles/chapter.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/chapter.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ass_mpi.dir
+
+# All Build rule for target.
+CMakeFiles/ass_mpi.dir/all:
+	$(MAKE) -f CMakeFiles/ass_mpi.dir/build.make CMakeFiles/ass_mpi.dir/depend
+	$(MAKE) -f CMakeFiles/ass_mpi.dir/build.make CMakeFiles/ass_mpi.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=6,7 "Built target ass_mpi"
+.PHONY : CMakeFiles/ass_mpi.dir/all
+
+# Include target in all.
+all: CMakeFiles/ass_mpi.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ass_mpi.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ass_mpi.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/ass_mpi.dir/rule
+
+# Convenience name for target.
+ass_mpi: CMakeFiles/ass_mpi.dir/rule
+
+.PHONY : ass_mpi
+
+# clean rule for target.
+CMakeFiles/ass_mpi.dir/clean:
+	$(MAKE) -f CMakeFiles/ass_mpi.dir/build.make CMakeFiles/ass_mpi.dir/clean
+.PHONY : CMakeFiles/ass_mpi.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/ass_mpi.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/ass.dir
 
 # All Build rule for target.
@@ -102,50 +250,13 @@ clean: CMakeFiles/ass.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/threads.dir
-
-# All Build rule for target.
-CMakeFiles/threads.dir/all:
-	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/depend
-	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=10,11 "Built target threads"
-.PHONY : CMakeFiles/threads.dir/all
-
-# Include target in all.
-all: CMakeFiles/threads.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/threads.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/threads.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/threads.dir/rule
-
-# Convenience name for target.
-threads: CMakeFiles/threads.dir/rule
-
-.PHONY : threads
-
-# clean rule for target.
-CMakeFiles/threads.dir/clean:
-	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/clean
-.PHONY : CMakeFiles/threads.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/threads.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/parallel.dir
 
 # All Build rule for target.
 CMakeFiles/parallel.dir/all:
 	$(MAKE) -f CMakeFiles/parallel.dir/build.make CMakeFiles/parallel.dir/depend
 	$(MAKE) -f CMakeFiles/parallel.dir/build.make CMakeFiles/parallel.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=8,9 "Built target parallel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=12,13 "Built target parallel"
 .PHONY : CMakeFiles/parallel.dir/all
 
 # Include target in all.
@@ -176,39 +287,39 @@ clean: CMakeFiles/parallel.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/chapter.dir
+# Target rules for target CMakeFiles/tutorial.dir
 
 # All Build rule for target.
-CMakeFiles/chapter.dir/all:
-	$(MAKE) -f CMakeFiles/chapter.dir/build.make CMakeFiles/chapter.dir/depend
-	$(MAKE) -f CMakeFiles/chapter.dir/build.make CMakeFiles/chapter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=6,7 "Built target chapter"
-.PHONY : CMakeFiles/chapter.dir/all
+CMakeFiles/tutorial.dir/all:
+	$(MAKE) -f CMakeFiles/tutorial.dir/build.make CMakeFiles/tutorial.dir/depend
+	$(MAKE) -f CMakeFiles/tutorial.dir/build.make CMakeFiles/tutorial.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=16,17 "Built target tutorial"
+.PHONY : CMakeFiles/tutorial.dir/all
 
 # Include target in all.
-all: CMakeFiles/chapter.dir/all
+all: CMakeFiles/tutorial.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/chapter.dir/rule: cmake_check_build_system
+CMakeFiles/tutorial.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/chapter.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tutorial.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/chapter.dir/rule
+.PHONY : CMakeFiles/tutorial.dir/rule
 
 # Convenience name for target.
-chapter: CMakeFiles/chapter.dir/rule
+tutorial: CMakeFiles/tutorial.dir/rule
 
-.PHONY : chapter
-
-# clean rule for target.
-CMakeFiles/chapter.dir/clean:
-	$(MAKE) -f CMakeFiles/chapter.dir/build.make CMakeFiles/chapter.dir/clean
-.PHONY : CMakeFiles/chapter.dir/clean
+.PHONY : tutorial
 
 # clean rule for target.
-clean: CMakeFiles/chapter.dir/clean
+CMakeFiles/tutorial.dir/clean:
+	$(MAKE) -f CMakeFiles/tutorial.dir/build.make CMakeFiles/tutorial.dir/clean
+.PHONY : CMakeFiles/tutorial.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/tutorial.dir/clean
 
 .PHONY : clean
 

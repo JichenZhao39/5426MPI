@@ -2,10 +2,13 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
+      <config projectName="MPI" targetName="tutorial" />
       <config projectName="MPI" targetName="MPI" />
+      <config projectName="MPI" targetName="linuxex" />
+      <config projectName="MPI" targetName="parallel" />
       <config projectName="MPI" targetName="chapter" />
       <config projectName="MPI" targetName="threads" />
-      <config projectName="MPI" targetName="parallel" />
+      <config projectName="MPI" targetName="ass_mpi" />
       <config projectName="MPI" targetName="ass" />
     </generated>
   </component>
@@ -15,11 +18,85 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfda900e-34e8-4672-b1ef-324257ab9b64" name="Default Changelist" comment="">
+    <list default="true" id="bfda900e-34e8-4672-b1ef-324257ab9b64" name="Default Changelist" comment="finished sequential method for red/blue computation.">
+      <change afterPath="$PROJECT_DIR$/Assignment/Assignment_MPI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MPIprogram/tutorial.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/Linux_Unix.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/Build_ename.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/alt_functions.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/alt_functions.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/become_daemon.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/become_daemon.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/binary_sems.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/binary_sems.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/cap_functions.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/cap_functions.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/create_pid_file.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/create_pid_file.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/curr_time.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/curr_time.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/error_functions.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/error_functions.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/event_flags.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/event_flags.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/file_perms.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/file_perms.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/get_num.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/get_num.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/inet_sockets.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/inet_sockets.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/itimerspec_from_str.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/itimerspec_from_str.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/print_rlimit.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/print_rlimit.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/print_rusage.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/print_rusage.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/print_wait_status.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/print_wait_status.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/pty_fork.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/pty_fork.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/pty_master_open.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/pty_master_open.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/rdwrn.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/rdwrn.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/read_line.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/read_line.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/read_line_buf.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/read_line_buf.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/region_locking.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/region_locking.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/scm_functions.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/scm_functions.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/semun.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/signal.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/signal_functions.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/signal_functions.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/tlpi_hdr.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/tty_functions.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/tty_functions.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/ugid_functions.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/ugid_functions.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/unix_sockets.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/unix_sockets.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/userns_functions.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PThreads/lib/userns_functions.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment/assignment1.c" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment/assignment1.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ass.dir/Assignment/assignment1.c.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ass" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MPIprogram/MPI_Parallel.c" beforeDir="false" afterPath="$PROJECT_DIR$/MPIprogram/MPI_Parallel.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MPIprogram/mpiparallel" beforeDir="false" afterPath="$PROJECT_DIR$/MPIprogram/mpiparallel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PThreads/Pthread_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/PThreads/Pthread_ex.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/chapter.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/chapter.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MPI.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MPI.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello" beforeDir="false" afterPath="$PROJECT_DIR$/hello" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,40 +110,40 @@
     <session id="496190400">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.0" value="9" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.3" value="9" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.3" value="11" />
           <entry key="project.open.time.4" value="6" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="35979" />
+          <entry key="c" value="44976" />
           <entry key="h" value="95" />
-          <entry key="txt" value="185" />
+          <entry key="txt" value="289" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CMakeLists.txt" value="65" />
+          <entry key="CMakeLists.txt" value="110" />
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="36073" />
-          <entry key="PLAIN_TEXT" value="120" />
+          <entry key="ObjectiveC" value="45070" />
+          <entry key="PLAIN_TEXT" value="179" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="c" value="12" />
-          <entry key="h" value="3" />
-          <entry key="txt" value="3" />
+          <entry key="c" value="19" />
+          <entry key="h" value="6" />
+          <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CMakeLists.txt" value="3" />
-          <entry key="ObjectiveC" value="15" />
+          <entry key="CMakeLists.txt" value="6" />
+          <entry key="ObjectiveC" value="25" />
         </counts>
       </usages-collector>
     </session>
@@ -74,64 +151,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+        <entry file="file://$PROJECT_DIR$/MPIprogram/tutorial.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Chapter3/mpiex.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7860">
-              <caret line="524" column="18" selection-start-line="524" selection-start-column="18" selection-end-line="524" selection-end-column="18" />
+            <state relative-caret-position="268">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
-                <element signature="e#39#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PThreads/Pthread_ex.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
-              <folding>
-                <element signature="e#39#61#0" expanded="true" />
+                <element signature="e#39#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assignment/Assignment_MPI.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+              <folding>
+                <element signature="e#40#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assignment/assignment1.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MPIprogram/MPI_Parallel.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4650">
-              <caret line="310" column="16" selection-start-line="310" selection-start-column="16" selection-end-line="310" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="389">
+              <caret line="162" column="64" selection-start-line="162" selection-start-column="64" selection-end-line="162" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -146,12 +193,15 @@
       <list>
         <option value="$PROJECT_DIR$/tmpi_rank.h" />
         <option value="$PROJECT_DIR$/tmpi_rank.c" />
-        <option value="$PROJECT_DIR$/MPIprogram/MPI_Parallel.c" />
         <option value="$PROJECT_DIR$/Chapter3/mpiex.c" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/PThreads/Pthread_ex.c" />
         <option value="$PROJECT_DIR$/main.c" />
+        <option value="$PROJECT_DIR$/MPIprogram/MPI_Parallel.c" />
+        <option value="$PROJECT_DIR$/MPIprogram/tutorial.c" />
         <option value="$PROJECT_DIR$/Assignment/assignment1.c" />
+        <option value="$PROJECT_DIR$/PThreads/Pthread_ex.c" />
+        <option value="$PROJECT_DIR$/PThreads/Linux_Unix.c" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/Assignment/Assignment_MPI.c" />
       </list>
     </option>
   </component>
@@ -162,8 +212,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="217" />
-    <option name="y" value="23" />
+    <option name="x" value="313" />
+    <option name="y" value="62" />
     <option name="width" value="960" />
     <option name="height" value="782" />
   </component>
@@ -198,7 +248,7 @@
             <path>
               <item name="MPI" type="b2602c69:ProjectViewProjectNode" />
               <item name="MPI" type="462c0819:PsiDirectoryNode" />
-              <item name="MPIprogram" type="462c0819:PsiDirectoryNode" />
+              <item name="Assignment" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MPI" type="b2602c69:ProjectViewProjectNode" />
@@ -222,6 +272,9 @@
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/PThreads/lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/PThreads" />
     </key>
@@ -238,7 +291,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ass">
+  <component name="RunManager" selected="Application.linuxex">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -254,7 +307,17 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ass_mpi" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MPI" TARGET_NAME="ass_mpi" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MPI" RUN_TARGET_NAME="ass_mpi">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="chapter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MPI" TARGET_NAME="chapter" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MPI" RUN_TARGET_NAME="chapter">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="linuxex" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MPI" TARGET_NAME="linuxex" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MPI" RUN_TARGET_NAME="linuxex">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -269,13 +332,21 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="tutorial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MPI" TARGET_NAME="tutorial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MPI" RUN_TARGET_NAME="tutorial">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Build All" />
       <item itemvalue="Application.chapter" />
+      <item itemvalue="Application.linuxex" />
       <item itemvalue="Application.MPI" />
       <item itemvalue="Application.parallel" />
       <item itemvalue="Application.threads" />
+      <item itemvalue="Application.tutorial" />
       <item itemvalue="Application.ass" />
+      <item itemvalue="Application.ass_mpi" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -312,7 +383,10 @@
       <workItem from="1552305955925" duration="2304000" />
       <workItem from="1552346604636" duration="2000" />
       <workItem from="1552346613043" duration="10731000" />
-      <workItem from="1552431623002" duration="11796000" />
+      <workItem from="1552431623002" duration="12182000" />
+      <workItem from="1552472303693" duration="7414000" />
+      <workItem from="1552520604842" duration="8046000" />
+      <workItem from="1552604837449" duration="2402000" />
     </task>
     <task id="LOCAL-00001" summary="dynamic apply 2D array">
       <created>1552261766655</created>
@@ -349,11 +423,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552453810732</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finished sequential method for red/blue computation.">
+      <created>1552458329063</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1552458329063</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109272000" />
+    <option name="totallyTimeSpent" value="127520000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -365,24 +446,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="217" y="23" width="960" height="782" extended-state="0" />
+    <frame x="468" y="62" width="960" height="782" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4979253" visible="true" weight="0.21023965" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4979253" visible="true" weight="0.22331154" />
       <window_info id="Structure" order="1" sideWeight="0.5020747" side_tool="true" weight="0.21023965" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28115943" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289855" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36231884" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32753623" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.29759037" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.29565218" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289855" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32753623" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32463768" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.32463768" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -401,7 +483,8 @@
     <MESSAGE value="threads start routine" />
     <MESSAGE value="count the number in each tile" />
     <MESSAGE value="count the number in each tile and print out tile position" />
-    <option name="LAST_COMMIT_MESSAGE" value="count the number in each tile and print out tile position" />
+    <MESSAGE value="finished sequential method for red/blue computation." />
+    <option name="LAST_COMMIT_MESSAGE" value="finished sequential method for red/blue computation." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tmpi_rank.h">
@@ -431,54 +514,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Chapter3/mpiex.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7860">
+        <state relative-caret-position="613">
           <caret line="524" column="18" selection-start-line="524" selection-start-column="18" selection-end-line="524" selection-end-column="18" />
-          <folding>
-            <element signature="e#39#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PThreads/Pthread_ex.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
-          <folding>
-            <element signature="e#39#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MPIprogram/MPI_Parallel.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4650">
-          <caret line="310" column="16" selection-start-line="310" selection-start-column="16" selection-end-line="310" selection-end-column="16" />
+        <state relative-caret-position="2835">
+          <caret line="189" column="34" selection-start-line="189" selection-start-column="34" selection-end-line="189" selection-end-column="34" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PThreads/tlpi_hdr.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PThreads/lib/tlpi_hdr.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-541">
+          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <folding>
+            <element signature="e#876#944#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PThreads/Linux_Unix.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PThreads/Pthread_ex.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="508" column="7" selection-start-line="508" selection-start-column="7" selection-end-line="508" selection-end-column="7" />
+          <folding>
+            <element signature="e#39#61#0" expanded="true" />
+            <element signature="e#7678#7911#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MPIprogram/MPI_Parallel.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+          <folding>
+            <element signature="e#39#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assignment/assignment1.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
+        <state relative-caret-position="389">
+          <caret line="162" column="64" selection-start-line="162" selection-start-column="64" selection-end-line="162" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MPIprogram/tutorial.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#39#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment/Assignment_MPI.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+          <folding>
+            <element signature="e#40#56#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

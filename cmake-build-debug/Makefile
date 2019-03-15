@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ass
+# Target rules for targets named linuxex
 
 # Build rule for target.
-ass: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ass
-.PHONY : ass
+linuxex: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 linuxex
+.PHONY : linuxex
 
 # fast build rule for target.
-ass/fast:
-	$(MAKE) -f CMakeFiles/ass.dir/build.make CMakeFiles/ass.dir/build
-.PHONY : ass/fast
+linuxex/fast:
+	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/build
+.PHONY : linuxex/fast
 
 #=============================================================================
 # Target rules for targets named threads
@@ -137,19 +137,6 @@ threads/fast:
 .PHONY : threads/fast
 
 #=============================================================================
-# Target rules for targets named parallel
-
-# Build rule for target.
-parallel: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 parallel
-.PHONY : parallel
-
-# fast build rule for target.
-parallel/fast:
-	$(MAKE) -f CMakeFiles/parallel.dir/build.make CMakeFiles/parallel.dir/build
-.PHONY : parallel/fast
-
-#=============================================================================
 # Target rules for targets named chapter
 
 # Build rule for target.
@@ -163,6 +150,58 @@ chapter/fast:
 .PHONY : chapter/fast
 
 #=============================================================================
+# Target rules for targets named ass_mpi
+
+# Build rule for target.
+ass_mpi: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ass_mpi
+.PHONY : ass_mpi
+
+# fast build rule for target.
+ass_mpi/fast:
+	$(MAKE) -f CMakeFiles/ass_mpi.dir/build.make CMakeFiles/ass_mpi.dir/build
+.PHONY : ass_mpi/fast
+
+#=============================================================================
+# Target rules for targets named ass
+
+# Build rule for target.
+ass: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ass
+.PHONY : ass
+
+# fast build rule for target.
+ass/fast:
+	$(MAKE) -f CMakeFiles/ass.dir/build.make CMakeFiles/ass.dir/build
+.PHONY : ass/fast
+
+#=============================================================================
+# Target rules for targets named parallel
+
+# Build rule for target.
+parallel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 parallel
+.PHONY : parallel
+
+# fast build rule for target.
+parallel/fast:
+	$(MAKE) -f CMakeFiles/parallel.dir/build.make CMakeFiles/parallel.dir/build
+.PHONY : parallel/fast
+
+#=============================================================================
+# Target rules for targets named tutorial
+
+# Build rule for target.
+tutorial: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tutorial
+.PHONY : tutorial
+
+# fast build rule for target.
+tutorial/fast:
+	$(MAKE) -f CMakeFiles/tutorial.dir/build.make CMakeFiles/tutorial.dir/build
+.PHONY : tutorial/fast
+
+#=============================================================================
 # Target rules for targets named MPI
 
 # Build rule for target.
@@ -174,6 +213,33 @@ MPI: cmake_check_build_system
 MPI/fast:
 	$(MAKE) -f CMakeFiles/MPI.dir/build.make CMakeFiles/MPI.dir/build
 .PHONY : MPI/fast
+
+Assignment/Assignment_MPI.o: Assignment/Assignment_MPI.c.o
+
+.PHONY : Assignment/Assignment_MPI.o
+
+# target to build an object file
+Assignment/Assignment_MPI.c.o:
+	$(MAKE) -f CMakeFiles/ass_mpi.dir/build.make CMakeFiles/ass_mpi.dir/Assignment/Assignment_MPI.c.o
+.PHONY : Assignment/Assignment_MPI.c.o
+
+Assignment/Assignment_MPI.i: Assignment/Assignment_MPI.c.i
+
+.PHONY : Assignment/Assignment_MPI.i
+
+# target to preprocess a source file
+Assignment/Assignment_MPI.c.i:
+	$(MAKE) -f CMakeFiles/ass_mpi.dir/build.make CMakeFiles/ass_mpi.dir/Assignment/Assignment_MPI.c.i
+.PHONY : Assignment/Assignment_MPI.c.i
+
+Assignment/Assignment_MPI.s: Assignment/Assignment_MPI.c.s
+
+.PHONY : Assignment/Assignment_MPI.s
+
+# target to generate assembly for a file
+Assignment/Assignment_MPI.c.s:
+	$(MAKE) -f CMakeFiles/ass_mpi.dir/build.make CMakeFiles/ass_mpi.dir/Assignment/Assignment_MPI.c.s
+.PHONY : Assignment/Assignment_MPI.c.s
 
 Assignment/assignment1.o: Assignment/assignment1.c.o
 
@@ -255,6 +321,60 @@ MPIprogram/MPI_Parallel.s: MPIprogram/MPI_Parallel.c.s
 MPIprogram/MPI_Parallel.c.s:
 	$(MAKE) -f CMakeFiles/parallel.dir/build.make CMakeFiles/parallel.dir/MPIprogram/MPI_Parallel.c.s
 .PHONY : MPIprogram/MPI_Parallel.c.s
+
+MPIprogram/tutorial.o: MPIprogram/tutorial.c.o
+
+.PHONY : MPIprogram/tutorial.o
+
+# target to build an object file
+MPIprogram/tutorial.c.o:
+	$(MAKE) -f CMakeFiles/tutorial.dir/build.make CMakeFiles/tutorial.dir/MPIprogram/tutorial.c.o
+.PHONY : MPIprogram/tutorial.c.o
+
+MPIprogram/tutorial.i: MPIprogram/tutorial.c.i
+
+.PHONY : MPIprogram/tutorial.i
+
+# target to preprocess a source file
+MPIprogram/tutorial.c.i:
+	$(MAKE) -f CMakeFiles/tutorial.dir/build.make CMakeFiles/tutorial.dir/MPIprogram/tutorial.c.i
+.PHONY : MPIprogram/tutorial.c.i
+
+MPIprogram/tutorial.s: MPIprogram/tutorial.c.s
+
+.PHONY : MPIprogram/tutorial.s
+
+# target to generate assembly for a file
+MPIprogram/tutorial.c.s:
+	$(MAKE) -f CMakeFiles/tutorial.dir/build.make CMakeFiles/tutorial.dir/MPIprogram/tutorial.c.s
+.PHONY : MPIprogram/tutorial.c.s
+
+PThreads/Linux_Unix.o: PThreads/Linux_Unix.c.o
+
+.PHONY : PThreads/Linux_Unix.o
+
+# target to build an object file
+PThreads/Linux_Unix.c.o:
+	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/PThreads/Linux_Unix.c.o
+.PHONY : PThreads/Linux_Unix.c.o
+
+PThreads/Linux_Unix.i: PThreads/Linux_Unix.c.i
+
+.PHONY : PThreads/Linux_Unix.i
+
+# target to preprocess a source file
+PThreads/Linux_Unix.c.i:
+	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/PThreads/Linux_Unix.c.i
+.PHONY : PThreads/Linux_Unix.c.i
+
+PThreads/Linux_Unix.s: PThreads/Linux_Unix.c.s
+
+.PHONY : PThreads/Linux_Unix.s
+
+# target to generate assembly for a file
+PThreads/Linux_Unix.c.s:
+	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/PThreads/Linux_Unix.c.s
+.PHONY : PThreads/Linux_Unix.c.s
 
 PThreads/Pthread_ex.o: PThreads/Pthread_ex.c.o
 
@@ -344,12 +464,18 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... linuxex"
+	@echo "... threads"
+	@echo "... chapter"
+	@echo "... ass_mpi"
 	@echo "... edit_cache"
 	@echo "... ass"
-	@echo "... threads"
 	@echo "... parallel"
-	@echo "... chapter"
+	@echo "... tutorial"
 	@echo "... MPI"
+	@echo "... Assignment/Assignment_MPI.o"
+	@echo "... Assignment/Assignment_MPI.i"
+	@echo "... Assignment/Assignment_MPI.s"
 	@echo "... Assignment/assignment1.o"
 	@echo "... Assignment/assignment1.i"
 	@echo "... Assignment/assignment1.s"
@@ -359,6 +485,12 @@ help:
 	@echo "... MPIprogram/MPI_Parallel.o"
 	@echo "... MPIprogram/MPI_Parallel.i"
 	@echo "... MPIprogram/MPI_Parallel.s"
+	@echo "... MPIprogram/tutorial.o"
+	@echo "... MPIprogram/tutorial.i"
+	@echo "... MPIprogram/tutorial.s"
+	@echo "... PThreads/Linux_Unix.o"
+	@echo "... PThreads/Linux_Unix.i"
+	@echo "... PThreads/Linux_Unix.s"
 	@echo "... PThreads/Pthread_ex.o"
 	@echo "... PThreads/Pthread_ex.i"
 	@echo "... PThreads/Pthread_ex.s"
