@@ -10,6 +10,7 @@ add_executable(ass Assignment/assignment1.c)
 add_executable(ass_mpi  Assignment/Assignment_MPI.c)
 add_executable(threads PThreads/Pthread_ex.c )
 add_executable(tutorial MPIprogram/tutorial.c)
+add_executable(tutorial3 MPIprogram/tutorial3_1.c)
 add_executable(linuxex PThreads/Linux_Unix.c PThreads/lib)
 
 include_directories(/usr/local/include/)

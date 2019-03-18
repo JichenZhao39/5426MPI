@@ -137,6 +137,19 @@ threads/fast:
 .PHONY : threads/fast
 
 #=============================================================================
+# Target rules for targets named tutorial3
+
+# Build rule for target.
+tutorial3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tutorial3
+.PHONY : tutorial3
+
+# fast build rule for target.
+tutorial3/fast:
+	$(MAKE) -f CMakeFiles/tutorial3.dir/build.make CMakeFiles/tutorial3.dir/build
+.PHONY : tutorial3/fast
+
+#=============================================================================
 # Target rules for targets named chapter
 
 # Build rule for target.
@@ -349,6 +362,33 @@ MPIprogram/tutorial.c.s:
 	$(MAKE) -f CMakeFiles/tutorial.dir/build.make CMakeFiles/tutorial.dir/MPIprogram/tutorial.c.s
 .PHONY : MPIprogram/tutorial.c.s
 
+MPIprogram/tutorial3_1.o: MPIprogram/tutorial3_1.c.o
+
+.PHONY : MPIprogram/tutorial3_1.o
+
+# target to build an object file
+MPIprogram/tutorial3_1.c.o:
+	$(MAKE) -f CMakeFiles/tutorial3.dir/build.make CMakeFiles/tutorial3.dir/MPIprogram/tutorial3_1.c.o
+.PHONY : MPIprogram/tutorial3_1.c.o
+
+MPIprogram/tutorial3_1.i: MPIprogram/tutorial3_1.c.i
+
+.PHONY : MPIprogram/tutorial3_1.i
+
+# target to preprocess a source file
+MPIprogram/tutorial3_1.c.i:
+	$(MAKE) -f CMakeFiles/tutorial3.dir/build.make CMakeFiles/tutorial3.dir/MPIprogram/tutorial3_1.c.i
+.PHONY : MPIprogram/tutorial3_1.c.i
+
+MPIprogram/tutorial3_1.s: MPIprogram/tutorial3_1.c.s
+
+.PHONY : MPIprogram/tutorial3_1.s
+
+# target to generate assembly for a file
+MPIprogram/tutorial3_1.c.s:
+	$(MAKE) -f CMakeFiles/tutorial3.dir/build.make CMakeFiles/tutorial3.dir/MPIprogram/tutorial3_1.c.s
+.PHONY : MPIprogram/tutorial3_1.c.s
+
 PThreads/Linux_Unix.o: PThreads/Linux_Unix.c.o
 
 .PHONY : PThreads/Linux_Unix.o
@@ -466,6 +506,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... linuxex"
 	@echo "... threads"
+	@echo "... tutorial3"
 	@echo "... chapter"
 	@echo "... ass_mpi"
 	@echo "... edit_cache"
@@ -488,6 +529,9 @@ help:
 	@echo "... MPIprogram/tutorial.o"
 	@echo "... MPIprogram/tutorial.i"
 	@echo "... MPIprogram/tutorial.s"
+	@echo "... MPIprogram/tutorial3_1.o"
+	@echo "... MPIprogram/tutorial3_1.i"
+	@echo "... MPIprogram/tutorial3_1.s"
 	@echo "... PThreads/Linux_Unix.o"
 	@echo "... PThreads/Linux_Unix.i"
 	@echo "... PThreads/Linux_Unix.s"

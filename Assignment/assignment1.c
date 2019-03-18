@@ -67,11 +67,11 @@ int main(void){
 
 
     //initialize the board. board_init();
-    printf("\n##########Board Initialize##########\n");
+    printf("\n############Board Initialize############\n");
     board_init(grid,n);
     //pint out initialize board
     grid_print(grid,n);
-    printf("\n##########Board Initialize##########\n");
+    printf("\n############Board Initialize############\n");
     //printf("\n%d %d %d %d",n,t,c,MAX_ITRS);
 
 
@@ -103,8 +103,6 @@ int main(void){
                 grid[i][0] = 0;
         }
 
-
-
         /*// blue color movement*/
         for (i = 0;i<n;i++){
             //when column 0 &1
@@ -129,22 +127,21 @@ int main(void){
         }
 
         //count the number in each tile
-        int count_red=0,count_blue=0;
-        float red_percentage=0.0,blue_percentage=0.0;
+        float red_percentage,blue_percentage;
         for (int i = 0; i < (int)n/t; i++) {
             for (int j = 0; j < (int)n/t; j++) {
                 //grid of tile
                 for (int k = t * i; k < (t+i*t); k++) {
                     for (int l = t*j; l < (t+j*t); l++) {
                         if (grid[k][l] == 1)
-                            count_red++;    //count the number of red colour
+                            redcount++;    //count the number of red colour
                         if (grid[k][l] == 2)
-                            count_blue++;   //count the number of blue colour
+                            bluecount++;   //count the number of blue colour
                     }
                 }
                 //get the red/blue percentage
-                red_percentage = (float)count_red * 100 / (t*t);
-                blue_percentage = (float)count_blue * 100 / (t*t);
+                red_percentage = (float)redcount * 100 / (t*t);
+                blue_percentage = (float)bluecount * 100 / (t*t);
                 //printf("\n%f.......%f\n",red_percentage,blue_percentage);
                 //check if the computation can be terminated
                 if ((red_percentage >= (float)c) || (blue_percentage >= (float)c)){
@@ -156,6 +153,7 @@ int main(void){
                         printf("\n");
                     }
                     printf("Program Terminated at %d row,%d column.\n",t*i+1,t*j+1);
+                    finished = true;
                     //printf("\n%f.......%f.....%f\n",red_percentage,blue_percentage,(float)c);
                     if (red_percentage >= (float)c)
                         printf("Red colour cell percentage has more than threshold: %f%% > %f%%(threshold)",red_percentage,(float)c);
@@ -164,10 +162,12 @@ int main(void){
                     printf("\nTerminated at iteration %d\n",n_itrs);
                     //break;
                     grid_print(grid,n);
-                    return 0;
+
+                    return finished;
                 }
-                count_red = 0;
-                count_blue = 0;
+                redcount = 0;
+                bluecount = 0;
+                finished = false;
             }
         }
 

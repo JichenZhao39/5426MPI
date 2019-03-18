@@ -647,7 +647,7 @@ int main(int argc, char** argv) {
             world_rank,local_sum,local_sum / num_elements_per_proc);
 
     //reduce all of the local sums into the global sum*/
-    float global_sum;
+    //float global_sum;
     //MPI_Reduce
     //MPI_Reduce(&local_sum,&global_sum,1,MPI_FLOAT,MPI_SUM,0,MPI_COMM_WORLD);
     /*MPI_Allreduce************************************************
