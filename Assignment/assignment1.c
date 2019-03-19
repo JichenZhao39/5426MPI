@@ -30,7 +30,7 @@ void grid_print(int **grid,n){
     }
 }
 
-int main(void){
+int main(int argc,char *argv[]){
     /*
    white = 0, red = 1, blue = 2,
    red or blue just moved in = 3 and
@@ -43,7 +43,6 @@ int main(void){
     int n_itrs = 0;
     int redcount, bluecount;
     int i, j;
-    int **tile1,**tile2,**tile3,**tile4;
     srand((unsigned)time(0));//we use time as our random number seeds
 
 

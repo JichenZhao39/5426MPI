@@ -1,5 +1,6 @@
-/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/linuxex.dir
+/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/tutorial32.dir
+/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/threads.dir
 /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/tutorial3.dir
 /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles/chapter.dir

@@ -46,6 +46,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/linuxex.dir/DependInfo.cmake"
+  "CMakeFiles/tutorial32.dir/DependInfo.cmake"
   "CMakeFiles/threads.dir/DependInfo.cmake"
   "CMakeFiles/tutorial3.dir/DependInfo.cmake"
   "CMakeFiles/chapter.dir/DependInfo.cmake"

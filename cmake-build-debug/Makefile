@@ -124,6 +124,19 @@ linuxex/fast:
 .PHONY : linuxex/fast
 
 #=============================================================================
+# Target rules for targets named tutorial32
+
+# Build rule for target.
+tutorial32: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tutorial32
+.PHONY : tutorial32
+
+# fast build rule for target.
+tutorial32/fast:
+	$(MAKE) -f CMakeFiles/tutorial32.dir/build.make CMakeFiles/tutorial32.dir/build
+.PHONY : tutorial32/fast
+
+#=============================================================================
 # Target rules for targets named threads
 
 # Build rule for target.
@@ -389,6 +402,33 @@ MPIprogram/tutorial3_1.c.s:
 	$(MAKE) -f CMakeFiles/tutorial3.dir/build.make CMakeFiles/tutorial3.dir/MPIprogram/tutorial3_1.c.s
 .PHONY : MPIprogram/tutorial3_1.c.s
 
+MPIprogram/tutorial3_2.o: MPIprogram/tutorial3_2.c.o
+
+.PHONY : MPIprogram/tutorial3_2.o
+
+# target to build an object file
+MPIprogram/tutorial3_2.c.o:
+	$(MAKE) -f CMakeFiles/tutorial32.dir/build.make CMakeFiles/tutorial32.dir/MPIprogram/tutorial3_2.c.o
+.PHONY : MPIprogram/tutorial3_2.c.o
+
+MPIprogram/tutorial3_2.i: MPIprogram/tutorial3_2.c.i
+
+.PHONY : MPIprogram/tutorial3_2.i
+
+# target to preprocess a source file
+MPIprogram/tutorial3_2.c.i:
+	$(MAKE) -f CMakeFiles/tutorial32.dir/build.make CMakeFiles/tutorial32.dir/MPIprogram/tutorial3_2.c.i
+.PHONY : MPIprogram/tutorial3_2.c.i
+
+MPIprogram/tutorial3_2.s: MPIprogram/tutorial3_2.c.s
+
+.PHONY : MPIprogram/tutorial3_2.s
+
+# target to generate assembly for a file
+MPIprogram/tutorial3_2.c.s:
+	$(MAKE) -f CMakeFiles/tutorial32.dir/build.make CMakeFiles/tutorial32.dir/MPIprogram/tutorial3_2.c.s
+.PHONY : MPIprogram/tutorial3_2.c.s
+
 PThreads/Linux_Unix.o: PThreads/Linux_Unix.c.o
 
 .PHONY : PThreads/Linux_Unix.o
@@ -442,6 +482,33 @@ PThreads/Pthread_ex.s: PThreads/Pthread_ex.c.s
 PThreads/Pthread_ex.c.s:
 	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/PThreads/Pthread_ex.c.s
 .PHONY : PThreads/Pthread_ex.c.s
+
+PThreads/lib/error_functions.o: PThreads/lib/error_functions.c.o
+
+.PHONY : PThreads/lib/error_functions.o
+
+# target to build an object file
+PThreads/lib/error_functions.c.o:
+	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/PThreads/lib/error_functions.c.o
+.PHONY : PThreads/lib/error_functions.c.o
+
+PThreads/lib/error_functions.i: PThreads/lib/error_functions.c.i
+
+.PHONY : PThreads/lib/error_functions.i
+
+# target to preprocess a source file
+PThreads/lib/error_functions.c.i:
+	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/PThreads/lib/error_functions.c.i
+.PHONY : PThreads/lib/error_functions.c.i
+
+PThreads/lib/error_functions.s: PThreads/lib/error_functions.c.s
+
+.PHONY : PThreads/lib/error_functions.s
+
+# target to generate assembly for a file
+PThreads/lib/error_functions.c.s:
+	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/PThreads/lib/error_functions.c.s
+.PHONY : PThreads/lib/error_functions.c.s
 
 main.o: main.c.o
 
@@ -503,8 +570,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... linuxex"
+	@echo "... tutorial32"
+	@echo "... rebuild_cache"
 	@echo "... threads"
 	@echo "... tutorial3"
 	@echo "... chapter"
@@ -532,12 +600,18 @@ help:
 	@echo "... MPIprogram/tutorial3_1.o"
 	@echo "... MPIprogram/tutorial3_1.i"
 	@echo "... MPIprogram/tutorial3_1.s"
+	@echo "... MPIprogram/tutorial3_2.o"
+	@echo "... MPIprogram/tutorial3_2.i"
+	@echo "... MPIprogram/tutorial3_2.s"
 	@echo "... PThreads/Linux_Unix.o"
 	@echo "... PThreads/Linux_Unix.i"
 	@echo "... PThreads/Linux_Unix.s"
 	@echo "... PThreads/Pthread_ex.o"
 	@echo "... PThreads/Pthread_ex.i"
 	@echo "... PThreads/Pthread_ex.s"
+	@echo "... PThreads/lib/error_functions.o"
+	@echo "... PThreads/lib/error_functions.i"
+	@echo "... PThreads/lib/error_functions.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

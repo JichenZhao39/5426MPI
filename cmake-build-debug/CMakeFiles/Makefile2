@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /Users/jichen/Documents/C/MPI/cmake-build-debug
 CMakeFiles/linuxex.dir/all:
 	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/depend
 	$(MAKE) -f CMakeFiles/linuxex.dir/build.make CMakeFiles/linuxex.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=10,11 "Built target linuxex"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=10,11,12 "Built target linuxex"
 .PHONY : CMakeFiles/linuxex.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/linuxex.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/linuxex.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/linuxex.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/linuxex.dir/rule
@@ -102,13 +102,50 @@ clean: CMakeFiles/linuxex.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/tutorial32.dir
+
+# All Build rule for target.
+CMakeFiles/tutorial32.dir/all:
+	$(MAKE) -f CMakeFiles/tutorial32.dir/build.make CMakeFiles/tutorial32.dir/depend
+	$(MAKE) -f CMakeFiles/tutorial32.dir/build.make CMakeFiles/tutorial32.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=21,22 "Built target tutorial32"
+.PHONY : CMakeFiles/tutorial32.dir/all
+
+# Include target in all.
+all: CMakeFiles/tutorial32.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tutorial32.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tutorial32.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/tutorial32.dir/rule
+
+# Convenience name for target.
+tutorial32: CMakeFiles/tutorial32.dir/rule
+
+.PHONY : tutorial32
+
+# clean rule for target.
+CMakeFiles/tutorial32.dir/clean:
+	$(MAKE) -f CMakeFiles/tutorial32.dir/build.make CMakeFiles/tutorial32.dir/clean
+.PHONY : CMakeFiles/tutorial32.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/tutorial32.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/threads.dir
 
 # All Build rule for target.
 CMakeFiles/threads.dir/all:
 	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/depend
 	$(MAKE) -f CMakeFiles/threads.dir/build.make CMakeFiles/threads.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=14,15 "Built target threads"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=15,16 "Built target threads"
 .PHONY : CMakeFiles/threads.dir/all
 
 # Include target in all.
@@ -145,7 +182,7 @@ clean: CMakeFiles/threads.dir/clean
 CMakeFiles/tutorial3.dir/all:
 	$(MAKE) -f CMakeFiles/tutorial3.dir/build.make CMakeFiles/tutorial3.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial3.dir/build.make CMakeFiles/tutorial3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=18,19 "Built target tutorial3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=19,20 "Built target tutorial3"
 .PHONY : CMakeFiles/tutorial3.dir/all
 
 # Include target in all.
@@ -293,7 +330,7 @@ clean: CMakeFiles/ass.dir/clean
 CMakeFiles/parallel.dir/all:
 	$(MAKE) -f CMakeFiles/parallel.dir/build.make CMakeFiles/parallel.dir/depend
 	$(MAKE) -f CMakeFiles/parallel.dir/build.make CMakeFiles/parallel.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=12,13 "Built target parallel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=13,14 "Built target parallel"
 .PHONY : CMakeFiles/parallel.dir/all
 
 # Include target in all.
@@ -330,7 +367,7 @@ clean: CMakeFiles/parallel.dir/clean
 CMakeFiles/tutorial.dir/all:
 	$(MAKE) -f CMakeFiles/tutorial.dir/build.make CMakeFiles/tutorial.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial.dir/build.make CMakeFiles/tutorial.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=16,17 "Built target tutorial"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jichen/Documents/C/MPI/cmake-build-debug/CMakeFiles --progress-num=17,18 "Built target tutorial"
 .PHONY : CMakeFiles/tutorial.dir/all
 
 # Include target in all.
