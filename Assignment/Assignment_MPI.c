@@ -33,6 +33,7 @@ void grid_print(int **grid,int n){
 }
 //count the red blue number in each tile
 bool count_red_blue(int **grid,int n,int t,int c) {
+    //first the redcount,bluecount needs to be initialize otherwise the result will be incorrect.
     int redcount=0, bluecount=0;
     float red_percentage,blue_percentage;
     bool finished = false;
@@ -121,6 +122,7 @@ int main(int argc, char *argv[]) {
     c = atoi(argv[3]);
     MAX_ITRS = atoi(argv[4]);
 
+    //dynamic apply 2D array
     int *grid_data = (int *)malloc(sizeof(int)*n*n);
     grid = (int **)malloc(n* sizeof(int*));
     for (int k = 0; k < n; k++) {
@@ -138,16 +140,69 @@ int main(int argc, char *argv[]) {
         grid_print(grid,n);
         printf("############Board Initialize############\n");
 
-
         //if only one process created,do a sequential iterative computation.
         //print out tiles with the colored squares more than %c one color (blue or red)and exit
         if (numprocs == 1){
+            while (!finished && n_itrs < MAX_ITRS){
 
+                // count the number of red and blue in each tile and check if the computation can be terminated
+                n_itrs++;
+                // red color movement
+                for (i = 0; i < n; i++){
+                    //when column 0 & 1
+                    if (grid[i][0] == 1 && grid[i][1] == 0){
+                        grid[i][0] = 4;//move out
+                        grid[i][1] = 3;//move in
+                    }
+                    // column 1 to n-1
+                    for (j = 1; j < n; j++){
+                        if (grid[i][j] == 1 && (grid[i][(j+1)%n] == 0)){
+                            grid[i][j] = 0; //this mean it is available
+                            grid[i][(j+1)%n] = 3;//red move in
+                        } else if (grid[i][j] == 3)//move in
+                            grid[i][j] = 1;//change to occupied cell
+                    }
+                    //column 0
+                    if (grid[i][0] == 3)
+                        grid[i][0] = 1;
+                    else if (grid[i][0] == 4)
+                        grid[i][0] = 0;
+                }
+
+                /*// blue color movement*/
+                for (i = 0;i<n;i++){
+                    //when column 0 &1
+                    if (grid[0][i] == 2 && grid[1][i] == 0){
+
+                        grid[0][i] = 4; //move out
+
+                        grid[1][i] = 3; //move in
+                    }
+                    //
+                    for (j = 1;j < n; j++){
+                        if (grid[j][i] == 2 && grid[(j+1)%n][i] == 0){
+                            grid[j][i] = 0;
+                            grid[(j+1)%n][i] = 3;
+                        } else if (grid[j][i] == 3)
+                            grid[j][i] = 2;
+                    }
+                    if (grid[0][i] == 3)
+                        grid[0][i] = 2;
+                    else if (grid[0][i] == 4)
+                        grid[0][i] = 0;
+                }
+
+                //count the number of red and blue in each tile
+                finished = count_red_blue(grid,n,t,c);
+                printf("\nTerminated at iteration %d\n",n_itrs);
+            }
+            MPI_Finalize();
+            return 0;
         }
-
-
-
         //else if more than one process created, patition and distribute the task to all process
+        else if (numprocs > 1){
+            //
+        }
     } else{
         //create other processes
         //create a sub-grid from process 0
