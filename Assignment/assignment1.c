@@ -29,6 +29,54 @@ void grid_print(int **grid,n){
         printf("\n");
     }
 }
+//count the red blue number in each tile
+bool count_red_blue(int **grid,int n,int t,int c) {
+    int redcount=0, bluecount=0;
+    float red_percentage,blue_percentage;
+    bool finished = false;
+    for (int i = 0; i < (int)n/t; i++) {
+        for (int j = 0; j < (int)n/t; j++) {
+            //grid of tile
+            for (int k = t * i; k < (t+i*t); k++) {
+                for (int l = t*j; l < (t+j*t); l++) {
+                    if (grid[k][l] == 1)
+                        redcount++;    //count the number of red colour
+                    if (grid[k][l] == 2)
+                        bluecount++;   //count the number of blue colour
+                }
+            }
+            //get the red/blue percentage
+            red_percentage = (float)redcount * 100 / (t*t);
+            blue_percentage = (float)bluecount * 100 / (t*t);
+            //printf("\n%f.......%f\n",red_percentage,blue_percentage);
+            //check if the computation can be terminated
+            if ((red_percentage >= (float)c) || (blue_percentage >= (float)c)){
+                printf("\nTerminated tile colour\n");
+                for (int k = t * i; k < (t+i*t); k++) {
+                    for (int l = t * j; l < (t + j * t); l++) {
+                        printf("%d", grid[k][l]);//print out the title position, and the colour and its percentage
+                    }
+                    printf("\n");
+                }
+                printf("Program Terminated at tile(%d,%d)\n",i,j);
+
+                //printf("\n%f.......%f.....%f\n",red_percentage,blue_percentage,(float)c);
+                if (red_percentage >= (float)c)
+                    printf("Red colour cell percentage has more than threshold: %f%% > %f%%(threshold)\n",red_percentage,(float)c);
+                if (blue_percentage >= (float)c)
+                    printf("Blue colour cell percentage has more than threshold: %f%% > %f%%(threshold)\n",blue_percentage,(float)c);
+                //break;
+                grid_print(grid,n);
+
+                //return finished;
+                finished = true;
+            }
+            redcount = 0;
+            bluecount = 0;
+        }
+    }
+    return finished;
+}
 
 int main(int argc,char *argv[]){
     /*
@@ -126,49 +174,8 @@ int main(int argc,char *argv[]){
         }
 
         //count the number in each tile
-        float red_percentage,blue_percentage;
-        for (int i = 0; i < (int)n/t; i++) {
-            for (int j = 0; j < (int)n/t; j++) {
-                //grid of tile
-                for (int k = t * i; k < (t+i*t); k++) {
-                    for (int l = t*j; l < (t+j*t); l++) {
-                        if (grid[k][l] == 1)
-                            redcount++;    //count the number of red colour
-                        if (grid[k][l] == 2)
-                            bluecount++;   //count the number of blue colour
-                    }
-                }
-                //get the red/blue percentage
-                red_percentage = (float)redcount * 100 / (t*t);
-                blue_percentage = (float)bluecount * 100 / (t*t);
-                //printf("\n%f.......%f\n",red_percentage,blue_percentage);
-                //check if the computation can be terminated
-                if ((red_percentage >= (float)c) || (blue_percentage >= (float)c)){
-                    printf("\nTerminated tile colour\n");
-                    for (int k = t * i; k < (t+i*t); k++) {
-                        for (int l = t * j; l < (t + j * t); l++) {
-                            printf("%d", grid[k][l]);//print out the title position, and the colour and its percentage
-                        }
-                        printf("\n");
-                    }
-                    printf("Program Terminated at %d row,%d column.\n",t*i+1,t*j+1);
-                    finished = true;
-                    //printf("\n%f.......%f.....%f\n",red_percentage,blue_percentage,(float)c);
-                    if (red_percentage >= (float)c)
-                        printf("Red colour cell percentage has more than threshold: %f%% > %f%%(threshold)",red_percentage,(float)c);
-                    if (blue_percentage >= (float)c)
-                        printf("Blue colour cell percentage has more than threshold: %f%% > %f%%(threshold)",blue_percentage,(float)c);
-                    printf("\nTerminated at iteration %d\n",n_itrs);
-                    //break;
-                    grid_print(grid,n);
-
-                    return finished;
-                }
-                redcount = 0;
-                bluecount = 0;
-                finished = false;
-            }
-        }
+        finished = count_red_blue(grid,n,t,c);
+        printf("\nTerminated at iteration %d\n",n_itrs);
 
     }
 

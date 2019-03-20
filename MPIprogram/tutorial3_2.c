@@ -25,15 +25,21 @@ int main(int argc, char **argv) {
 
     M = atoi(argv[1]);
     N = atoi(argv[2]);
+    //printf("%d\n........",atoi(argv[0]));
 
     if (myid == 0) {
 
         //create matrix A of size M X N.
         //... please fill.
-        A = (int **)malloc(sizeof(int *) * M);
+        /*A = (int **)malloc(sizeof(int *) * M);
         for (int i = 0; i < N; i++) {
             A[i] = (int *)malloc(sizeof(int) * N);
-        }
+        }*/
+        int *data = (int *)malloc(M*N*sizeof(int));
+        **A= (int **)malloc(M*sizeof(int*));
+
+        for(int i=0; i<M; i++)
+            A[i] = &(data[N*i]);
 
         //initialize matrix to 0.
         for (int i=0; i<M; i++)
@@ -78,10 +84,14 @@ int main(int argc, char **argv) {
     else { /*all other processes. */
         //create a submatrix A of size K X N.
         //... please fill.
-        A = (int **)malloc(sizeof(int *) * (M/(numprocs-1)));
+        /*A = (int **)malloc(sizeof(int *) * (M/(numprocs-1)));
         for (int k = 0; k < M/(numprocs-1); k++) {
             A[k] = (int *)malloc(sizeof(int)*N);
-        }
+        }*/
+        int *A_data = (int *)malloc((M/(numprocs-1))*N*sizeof(int));
+        A= (int **)malloc((M/(numprocs-1))*sizeof(int*));
+        for(int i=0; i<M/(numprocs-1); i++)
+            A[i] = &(A_data[N*i]);
 
 
         /* recv a submatrix from process 0.*/
