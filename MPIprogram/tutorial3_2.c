@@ -52,13 +52,16 @@ int main(int argc, char **argv) {
         if (numprocs > 1){
             //send a submatrix to every other processes
            // ...please fill.
-
-
-
+           int K = numprocs - 1;
+            for (int i = 0; i < K; i++) {
+                MPI_Send(&(A[i*(M/K)][0]),(M/K)*N,MPI_INT,i+1,0,MPI_COMM_WORLD);
+            }
 
             //receive a submatrix from every other processes
             //... please fill.
-
+            for (int j = 0; j < K; j++) {
+                MPI_Recv(&(A[j*(M/K)][0]),(M/K)*N,MPI_INT,j+1,0,MPI_COMM_WORLD,&status);
+            }
 
         }
 
@@ -75,20 +78,25 @@ int main(int argc, char **argv) {
     else { /*all other processes. */
         //create a submatrix A of size K X N.
         //... please fill.
-        int K;
+        A = (int **)malloc(sizeof(int *) * (M/(numprocs-1)));
+        for (int k = 0; k < M/(numprocs-1); k++) {
+            A[k] = (int *)malloc(sizeof(int)*N);
+        }
 
 
         /* recv a submatrix from process 0.*/
         //... please fill.
+        MPI_Recv((&A[0][0]),(M/(numprocs-1))*N,MPI_INT,0,0,MPI_COMM_WORLD,&status);
 
 
         /*update matrix A.*/
-        for (int i=0; i<K; i++)
+        for (int i=0; i<M/(numprocs-1); i++)
             for (int j=0; j<N; j++)
                 A[i][j] += myid;
 
         /* send the submatrix back to process 0. */
         //... please fill.
+        MPI_Send((&A[0][0]),(M/(numprocs-1))*N,MPI_INT,0,0,MPI_COMM_WORLD);
 
 
     }
