@@ -32,7 +32,7 @@ void grid_print(int **grid,int n){
     }
 }
 //count the red blue number in each tile
-bool count_red_blue(int **grid,int n,int t,int c) {
+bool count_red_blue(int **grid,int n,int t,int c,int n_iters) {
     //first the redcount,bluecount needs to be initialize otherwise the result will be incorrect.
     int redcount=0, bluecount=0;
     float red_percentage,blue_percentage;
@@ -62,6 +62,7 @@ bool count_red_blue(int **grid,int n,int t,int c) {
                     printf("\n");
                 }
                 printf("Program Terminated at tile(%d,%d)\n",i,j);
+                printf("Terminated iteration at %d\n",n_iters);
 
                 //printf("\n%f.......%f.....%f\n",red_percentage,blue_percentage,(float)c);
                 if (red_percentage >= (float)c)
@@ -85,7 +86,13 @@ int main(int argc, char *argv[]) {
 
     //any  thing you want to add.
     //... please fill.
-
+    if (argc != 5){
+        printf("Wrong number of arguments.\n");
+        printf("Please enter the command in the following format:\n");
+        printf("mpirun –np [proc num] main [grid size] [tile size] [threshold] [maximum iteration]\n");
+        printf("SAMPLE: mpirun –np 3 main 20 4 70 40\n");
+        exit(0);
+    }
 
     // initialize MPI environment and get the total number of processes and process id.
     int  myid, numprocs;
@@ -95,14 +102,15 @@ int main(int argc, char *argv[]) {
 
 
     int n,MAX_ITRS,t,c;     //n is grid size, t represent tile grid size, c represent terminating threshold
-    int **grid; 	/* grid[row][col] */
+    int **grid,**grid_copy,*grid_data1,*grid_data01,*ghost_data,**ghost,**ghost1; 	/* grid[row][col] */
     bool finished = false;
     int n_itrs = 0;
     int redcount, bluecount;
-    int i, j;
+    int i, j,K,ib,Kn,q,r;
     int **tile1,**tile2,**tile3,**tile4;
     srand((unsigned)time(0));//we use time as our random number seeds
-
+    MPI_Status status;
+    int send_to,receive_from;
 
     //get user input
     //obtain four parameters for cell grid size, tile grid size, terminating threshold, and maximum number of iterations
@@ -128,7 +136,10 @@ int main(int argc, char *argv[]) {
     for (int k = 0; k < n; k++) {
         grid[k] = (&grid_data[n*k]);
     }
-
+    if (grid == NULL){
+        fprintf(stderr, "**grid out of memory\n");
+        exit(1);
+    }
 
     //process 0
     if (myid == 0){
@@ -140,6 +151,18 @@ int main(int argc, char *argv[]) {
         grid_print(grid,n);
         printf("############Board Initialize############\n");
 
+        //copy grid value to grid_copy 2D array. for sequential computational
+        int *grid_data = (int *)malloc(sizeof(int)*n*n);
+        grid_copy = (int **)malloc(sizeof(int *) * n);
+        for (int i = 0; i < n; i++) {
+            grid_copy[i] = &grid_data[n*i];
+        }
+        //memcpy(grid_copy,grid,n*n* sizeof(int));
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                grid_copy[i][j] = grid[i][j];
+            }
+        }
         //if only one process created,do a sequential iterative computation.
         //print out tiles with the colored squares more than %c one color (blue or red)and exit
         if (numprocs == 1){
@@ -193,37 +216,187 @@ int main(int argc, char *argv[]) {
                 }
 
                 //count the number of red and blue in each tile
-                finished = count_red_blue(grid,n,t,c);
-                printf("\nTerminated at iteration %d\n",n_itrs);
+                finished = count_red_blue(grid,n,t,c,n_itrs);
             }
-            MPI_Finalize();
-            return 0;
+            //MPI_Finalize();
+            //return 0;
         }
         //else if more than one process created, patition and distribute the task to all process
         else if (numprocs > 1){
-            //
+            //send submatrix to every other process
+            q = n / numprocs;
+            r = n % numprocs;
+            for (int i = 1; i < numprocs; i++) {
+                //calculate the first row
+                if (i < r){
+                    ib = i * (q + 1);
+                    K = q+1;
+                } else{
+                    ib = i * q + r;
+                    K = q;
+                }
+                Kn = K * n;
+                MPI_Send(&grid[ib][0],Kn,MPI_INT,i,0,MPI_COMM_WORLD);
+            }
+
+
+            /*//Receive
+            for (int i = 1; i < numprocs; i++) {
+                if (i < r){
+                    ib = i * (q + 1);
+                    K = q+1;
+                } else{
+                    ib = i * q + r;
+                    K = q;
+                }
+                MPI_Recv(&grid[ib][0],Kn,MPI_INT,i,1,MPI_COMM_WORLD,&status);
+            }*/
+            //grid_print(grid,n);
         }
     } else{
         //create other processes
         //create a sub-grid from process 0
-    }
+        //please fill
+        q = n / numprocs;
+        r = n % numprocs;
+        if (myid < 1)
+            K = q + 1;
+        else
+            K = q;
+        Kn = K * n;
 
+        //create a sub-grid from process 0
+        int *grid_data0 = (int *)malloc(sizeof(int)*K*n);
+        grid = (int **)malloc(K* sizeof(int*));
+        if (grid == NULL){
+            fprintf(stderr,"**grid out of memory\n");
+            exit(1);
+        }
+        for (int i = 0; i < K; i++) {
+            grid[i] = &grid_data0[i*n];
+        }
+
+        //receive a submatrix from process 0
+        MPI_Recv(&grid[0][0],Kn,MPI_INT,0,0,MPI_COMM_WORLD,&status);
+
+    }
 
     //parallel iterative computation
     //print out which tile (or tiles if more than one)has the colored squares
     //more than c% one color (blue or red)
+    while (!finished && n_itrs < MAX_ITRS){
+        // count the number of red and blue in each tile and check if the computation can be terminated
+        n_itrs++;
+
+        // red color movement
+        for (i = 0; i < t; i++){
+            //when column 0 & 1
+            if (grid[i][0] == 1 && grid[i][1] == 0){
+                grid[i][0] = 4;//move out
+                grid[i][1] = 3;//move in
+            }
+            // column 1 to n-1
+            for (j = 1; j < n; j++){
+                if (grid[i][j] == 1 && (grid[i][(j+1)%n] == 0)){
+                    grid[i][j] = 0; //this mean it is available
+                    grid[i][(j+1)%n] = 3;//red move in
+                } else if (grid[i][j] == 3)//move in
+                    grid[i][j] = 1;//change to occupied cell
+            }
+            //column 0
+            if (grid[i][0] == 3)
+                grid[i][0] = 1;
+            else if (grid[i][0] == 4)
+                grid[i][0] = 0;
+        }
 
 
-
+    }
 
     //all processes send the sub-grid back to process 0
-
+    if (myid != 0){
+        MPI_Send(&(grid[0][0]),t * n, MPI_INT, 0, 1, MPI_COMM_WORLD);
+    }
 
     //process 0:print out the result then
     //do a sequential iterative computation using the same data set,
     //compare the two results, and print the differences if any.
+    if (myid == 0){
+        //Receive
+        for (int i = 1; i < numprocs; i++) {
+            if (i < r){
+                ib = i * (q + 1);
+                K = q+1;
+            } else{
+                ib = i * q + r;
+                K = q;
+            }
+            MPI_Recv(&grid[ib][0],Kn,MPI_INT,i,1,MPI_COMM_WORLD,&status);
+        }
+        grid_print(grid,n);
 
-    
+
+        printf("\n&&&&&&&&&&&&&&&&&&Sequential computation&&&&&&&&&&&&&&&&&&&&&\n");
+        printf("\nCopy 2 dimentional array from grid[][] to grid_copy[][]\n");
+        grid_print(grid_copy,n);
+        finished = false;
+        n_itrs = 0;
+
+        //do sequential iterative computation using the same data set
+        while (!finished && n_itrs < MAX_ITRS){
+
+            // count the number of red and blue in each tile and check if the computation can be terminated
+            n_itrs++;
+            // red color movement
+            for (i = 0; i < n; i++){
+                //when column 0 & 1
+                if (grid_copy[i][0] == 1 && grid_copy[i][1] == 0){
+                    grid_copy[i][0] = 4;//move out
+                    grid_copy[i][1] = 3;//move in
+                }
+                // column 1 to n-1
+                for (j = 1; j < n; j++){
+                    if (grid_copy[i][j] == 1 && (grid_copy[i][(j+1)%n] == 0)){
+                        grid_copy[i][j] = 0; //this mean it is available
+                        grid_copy[i][(j+1)%n] = 3;//red move in
+                    } else if (grid_copy[i][j] == 3)//move in
+                        grid_copy[i][j] = 1;//change to occupied cell
+                }
+                //column 0
+                if (grid_copy[i][0] == 3)
+                    grid_copy[i][0] = 1;
+                else if (grid_copy[i][0] == 4)
+                    grid_copy[i][0] = 0;
+            }
+
+            /*// blue color movement*/
+            for (i = 0;i<n;i++){
+                //when column 0 &1
+                if (grid_copy[0][i] == 2 && grid_copy[1][i] == 0){
+
+                    grid_copy[0][i] = 4; //move out
+
+                    grid_copy[1][i] = 3; //move in
+                }
+                //
+                for (j = 1;j < n; j++){
+                    if (grid_copy[j][i] == 2 && grid_copy[(j+1)%n][i] == 0){
+                        grid_copy[j][i] = 0;
+                        grid_copy[(j+1)%n][i] = 3;
+                    } else if (grid_copy[j][i] == 3)
+                        grid_copy[j][i] = 2;
+                }
+                if (grid_copy[0][i] == 3)
+                    grid_copy[0][i] = 2;
+                else if (grid_copy[0][i] == 4)
+                    grid_copy[0][i] = 0;
+            }
+
+            //count the number of red and blue in each tile
+            finished = count_red_blue(grid_copy,n,t,c,n_itrs);
+        }
+
+    }
 
     MPI_Finalize();
     return 0;
