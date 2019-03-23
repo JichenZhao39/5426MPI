@@ -81,6 +81,23 @@ bool count_red_blue(int **grid,int n,int t,int c,int n_iters) {
     }
     return finished;
 }
+void self_checking(int **grid,int **grid_copy,int row){
+    int number_count = 0;
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < row; j++) {
+            if (grid[i][j] == grid_copy[i][j]){
+                number_count++;
+            }
+        }
+    }
+    printf("There are %d\n",number_count);
+    if (number_count == row*row){
+        printf("Parallel and Sequential has same results\n");
+    } else{
+        printf("The results of Parallel and Sequential is different\n");
+    }
+
+}
 
 int main(int argc, char *argv[]) {
 
@@ -90,7 +107,7 @@ int main(int argc, char *argv[]) {
         printf("Wrong number of arguments.\n");
         printf("Please enter the command in the following format:\n");
         printf("mpirun –np [proc num] main [grid size] [tile size] [threshold] [maximum iteration]\n");
-        printf("SAMPLE: mpirun –np 3 main 20 4 70 40\n");
+        printf("SAMPLE: mpirun –np 5 main 20 4 70 40\n");
         exit(0);
     }
 
@@ -114,20 +131,13 @@ int main(int argc, char *argv[]) {
 
     //get user input
     //obtain four parameters for cell grid size, tile grid size, terminating threshold, and maximum number of iterations
-    /*
-    printf("Please enter cell grid size:\n");
-    scanf("%d",&n);
-    //fflush(stdin);
-    //rewind(stdin);
-    printf("Please enter tile grid size:\n");
-    scanf("%d",&t);
-    printf("Please enter terminating threshold number:\n");
-    scanf("%d",&c);
-    printf("Please enter maximum number of iterations:\n");
-    scanf("%d",&MAX_ITRS);*/
+    //get the grid size form parameter
     n = atoi(argv[1]);
+    //get the tile grid size from parameter
     t = atoi(argv[2]);
+    //get the threshold from parameter
     c = atoi(argv[3]);
+    //get the maximum number of iterations
     MAX_ITRS = atoi(argv[4]);
 
     //dynamic apply 2D array
@@ -224,6 +234,7 @@ int main(int argc, char *argv[]) {
         //else if more than one process created, patition and distribute the task to all process
         else if (numprocs > 1){
             //send submatrix to every other process
+            //load balancing
             q = n / numprocs;
             r = n % numprocs;
             for (int i = 1; i < numprocs; i++) {
@@ -239,19 +250,6 @@ int main(int argc, char *argv[]) {
                 MPI_Send(&grid[ib][0],Kn,MPI_INT,i,0,MPI_COMM_WORLD);
             }
 
-
-            /*//Receive
-            for (int i = 1; i < numprocs; i++) {
-                if (i < r){
-                    ib = i * (q + 1);
-                    K = q+1;
-                } else{
-                    ib = i * q + r;
-                    K = q;
-                }
-                MPI_Recv(&grid[ib][0],Kn,MPI_INT,i,1,MPI_COMM_WORLD,&status);
-            }*/
-            //grid_print(grid,n);
         }
     } else{
         //create other processes
@@ -284,6 +282,7 @@ int main(int argc, char *argv[]) {
     //parallel iterative computation
     //print out which tile (or tiles if more than one)has the colored squares
     //more than c% one color (blue or red)
+    //red colour movement
     while (!finished && n_itrs < MAX_ITRS){
         // count the number of red and blue in each tile and check if the computation can be terminated
         n_itrs++;
@@ -309,6 +308,24 @@ int main(int argc, char *argv[]) {
             else if (grid[i][0] == 4)
                 grid[i][0] = 0;
         }
+
+        int *grid_data = (int *)malloc(sizeof(int)*n*n);
+        grid = (int **)malloc(n* sizeof(int*));
+        for (int k = 0; k < n; k++) {
+            grid[k] = (&grid_data[n*k]);
+        }
+        //create ghost cell for blue color movement
+        ghost_data = (int*)malloc(sizeof(int)*n);
+        ghost = (int**)malloc(sizeof(int*));
+        for (int i = 0; i < 1; i++) {
+            ghost[i] = ghost_data[i*n];
+        }
+        ghost_data = (int*)malloc(sizeof(int)*n);
+        ghost1 = (int **)malloc(sizeof(int *));
+        for (int j = 0; j < 1; j++) {
+            ghost1[j] = ghost_data[i*n];
+        }
+        //
 
 
     }
@@ -395,6 +412,8 @@ int main(int argc, char *argv[]) {
             //count the number of red and blue in each tile
             finished = count_red_blue(grid_copy,n,t,c,n_itrs);
         }
+        self_checking(grid,grid_copy,n);
+
 
     }
 
