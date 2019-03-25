@@ -33,7 +33,7 @@ void grid_print(int **grid,n){
 bool count_red_blue(int **grid,int n,int t,int c) {
     int redcount=0, bluecount=0;
     float red_percentage,blue_percentage;
-    bool finished = false;
+    int finished = 0;
     for (int i = 0; i < (int)n/t; i++) {
         for (int j = 0; j < (int)n/t; j++) {
             //grid of tile
@@ -69,7 +69,7 @@ bool count_red_blue(int **grid,int n,int t,int c) {
                 grid_print(grid,n);
 
                 //return finished;
-                finished = true;
+                finished = 1;
             }
             redcount = 0;
             bluecount = 0;
@@ -87,7 +87,7 @@ int main(int argc,char *argv[]){
 
     int n,MAX_ITRS,t,c;
     int **grid; 	/* grid[row][col] */
-    bool finished = false;
+    int finished = 0;
     int n_itrs = 0;
     int redcount, bluecount;
     int i, j;

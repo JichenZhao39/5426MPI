@@ -5,6 +5,7 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(MPI main.c tmpi_rank.c tmpi_rank.h )
 add_executable(chapter Chapter3/mpiex.c)
+add_executable(ch3  Chapter3/MPI_recom.c)
 add_executable(parallel MPIprogram/MPI_Parallel.c MPIprogram/MPI_Parallel.h)
 add_executable(ass Assignment/assignment1.c)
 add_executable(ass_mpi  Assignment/Assignment_MPI.c)

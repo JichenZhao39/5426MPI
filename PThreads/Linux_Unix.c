@@ -9,11 +9,12 @@
 #include "lib/curr_time.h"
 #include <signal.h>
 #include <time.h>
+#include <pthread.h>
 
 static int idata = 111;
-
+/*
 int t_fork(void){
-    int istack = 222;               /* Allocated in stack segment */
+    int istack = 222;               //// Allocated in stack segment
     pid_t childPid;
 
     switch (childPid = fork()) {
@@ -26,10 +27,10 @@ int t_fork(void){
             break;
 
         default:
-            sleep(3);                   /* Give child a chance to execute */
+            sleep(3);                   // Give child a chance to execute
             break;
     }
-    /* Both parent and child come here */
+    //Both parent and child come here
 
     printf("PID=%ld %s idata=%d istack=%d\n", (long) getpid(),
            (childPid == 0) ? "(child) " : "(parent)", idata, istack);
@@ -84,7 +85,7 @@ int fork_file_sharing(void){
     }
 }
 //调用函数而不改变进程的内存需求量
-/*
+
 static int func(int arg){
     int j;
     for (int j = 0; j < 0x100; j++) {
@@ -114,7 +115,7 @@ int footprint(int argc,char *argv[]){
     printf("program break in parent: %10p\n",sbrk(0));
     printf("Status = %d %d\n",status,WEXITSTATUS(status));
     exit(EXIT_SUCCESS);
-}*/
+}
 //使用vfork
 #define _BSD_SOURCE
 int t_vfork(void){
@@ -157,7 +158,7 @@ int fork_whos_on_first(int argc,char *argv[]){
                 break;
         }
     }
-    //exit(EXIT_SUCCESS);
+    exit(EXIT_SUCCESS);
 }
 
 //利用信号来同步进程间动作
@@ -229,6 +230,66 @@ int fork_stdio_buf(void){
     //both child and parent continue execution here
     exit(EXIT_SUCCESS);
 }
+*/
+///===============================Thread Chapters==========================================
+static void *threadFunc(void *arg){
+    char *s = (char *)arg;
+    printf("%s",s);
+    return (void *)strlen(s);
+}
+int simple_thread(void){
+    pthread_t t1;
+    void *res;
+    int s;
+    s = pthread_create(&t1,NULL,threadFunc,"Hello world\n");
+    if (s != 0)
+        errExitEN(s,"pthread_create");
+    printf("Message from main()\n");
+    s = pthread_join(t1,&res);
+    if (s != 0)
+        errExitEN(s,"pthread_join");
+    printf("Thread return %ld\n",(long)res);
+    exit(EXIT_SUCCESS);
+}
+static void * threadFunc1(void *x){
+    return x;
+}
+int detached_attrib(void){
+    pthread_t thr;
+    pthread_attr_t attr;
+    int s;
+
+    //assigns default values
+    s = pthread_attr_init(&attr);
+    if (s != 0)
+        errExitEN(s,"pthread_attr_init");
+    s = pthread_attr_setdetachstate(&attr,PTHREAD_CREATE_DETACHED);
+    if (s != 0)
+        errExitEN(s,"pthread_attr_setdetachstate");
+    s = pthread_create(&thr,&attr,threadFunc1,(void *) 1);
+    if (s != 0)
+        errExitEN(s,"pthread_create");
+    s = pthread_attr_destroy(&attr);    //no longer needed
+    if (s != 0)
+        errExitEN(s,"pthread_attr_destory");
+
+    s = pthread_join(thr,NULL);
+    if (s != 0)
+        errExitEN(s,"pthread_join failed as expected");
+    exit(EXIT_SUCCESS);
+}
+//'volatile' prevents compiler optimizations of arithmetic operations on'glob'
+static volatile int glob = 0;
+static void * threadFunc3(void *arg){
+    int loops = *((int *)arg);
+    int loc,j;
+    for (j = 0; j < loops; j++) {
+        loc = glob;
+        loc++;
+        glob = loc;
+    }
+    return NULL;
+}
 
 
 int main(int argc,char *argv[]){
@@ -237,7 +298,33 @@ int main(int argc,char *argv[]){
     //footprint(0,NULL);
     //t_vfork();
     //fork_sig_sync();
-    fork_stdio_buf();
+    //fork_stdio_buf();
+    //simple_thread();
+    //detached_attrib();
+    //thread_incr(2,NULL);
+    pthread_t t1,t2;
+    int loops,s;
+
+    loops = (argc > 1) ? getInt(argv[1],GN_GT_0,"num-loops") : 10000;
+    //int arg = (argc > 1) ? getInt(argv[1],0,"arg") : 0;
+
+    s = pthread_create(&t1,NULL,threadFunc3,&loops);
+    if (s != 0)
+        errExitEN(s,"pthread_create");
+
+    s = pthread_create(&t2,NULL,threadFunc3,&loops);
+    if (s != 0)
+        errExitEN(s,"pthread_create");
+
+    s = pthread_join(t1,NULL);
+    if (s != 0)
+        errExitEN(s,"pthread_join");
+
+    s = pthread_join(t2,NULL);
+    if (s != 0)
+        errExitEN(s,"pthread_join");
+    printf("glob = %d\n",glob);
+    exit(EXIT_SUCCESS);
 
     return 0;
 }

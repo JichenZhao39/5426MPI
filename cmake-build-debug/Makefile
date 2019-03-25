@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /Users/jichen/Documents/C/MPI/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -150,45 +150,6 @@ threads/fast:
 .PHONY : threads/fast
 
 #=============================================================================
-# Target rules for targets named tutorial3
-
-# Build rule for target.
-tutorial3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tutorial3
-.PHONY : tutorial3
-
-# fast build rule for target.
-tutorial3/fast:
-	$(MAKE) -f CMakeFiles/tutorial3.dir/build.make CMakeFiles/tutorial3.dir/build
-.PHONY : tutorial3/fast
-
-#=============================================================================
-# Target rules for targets named chapter
-
-# Build rule for target.
-chapter: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 chapter
-.PHONY : chapter
-
-# fast build rule for target.
-chapter/fast:
-	$(MAKE) -f CMakeFiles/chapter.dir/build.make CMakeFiles/chapter.dir/build
-.PHONY : chapter/fast
-
-#=============================================================================
-# Target rules for targets named ass_mpi
-
-# Build rule for target.
-ass_mpi: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ass_mpi
-.PHONY : ass_mpi
-
-# fast build rule for target.
-ass_mpi/fast:
-	$(MAKE) -f CMakeFiles/ass_mpi.dir/build.make CMakeFiles/ass_mpi.dir/build
-.PHONY : ass_mpi/fast
-
-#=============================================================================
 # Target rules for targets named ass
 
 # Build rule for target.
@@ -213,6 +174,58 @@ parallel: cmake_check_build_system
 parallel/fast:
 	$(MAKE) -f CMakeFiles/parallel.dir/build.make CMakeFiles/parallel.dir/build
 .PHONY : parallel/fast
+
+#=============================================================================
+# Target rules for targets named ch3
+
+# Build rule for target.
+ch3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ch3
+.PHONY : ch3
+
+# fast build rule for target.
+ch3/fast:
+	$(MAKE) -f CMakeFiles/ch3.dir/build.make CMakeFiles/ch3.dir/build
+.PHONY : ch3/fast
+
+#=============================================================================
+# Target rules for targets named tutorial3
+
+# Build rule for target.
+tutorial3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tutorial3
+.PHONY : tutorial3
+
+# fast build rule for target.
+tutorial3/fast:
+	$(MAKE) -f CMakeFiles/tutorial3.dir/build.make CMakeFiles/tutorial3.dir/build
+.PHONY : tutorial3/fast
+
+#=============================================================================
+# Target rules for targets named ass_mpi
+
+# Build rule for target.
+ass_mpi: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ass_mpi
+.PHONY : ass_mpi
+
+# fast build rule for target.
+ass_mpi/fast:
+	$(MAKE) -f CMakeFiles/ass_mpi.dir/build.make CMakeFiles/ass_mpi.dir/build
+.PHONY : ass_mpi/fast
+
+#=============================================================================
+# Target rules for targets named chapter
+
+# Build rule for target.
+chapter: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 chapter
+.PHONY : chapter
+
+# fast build rule for target.
+chapter/fast:
+	$(MAKE) -f CMakeFiles/chapter.dir/build.make CMakeFiles/chapter.dir/build
+.PHONY : chapter/fast
 
 #=============================================================================
 # Target rules for targets named tutorial
@@ -293,6 +306,33 @@ Assignment/assignment1.s: Assignment/assignment1.c.s
 Assignment/assignment1.c.s:
 	$(MAKE) -f CMakeFiles/ass.dir/build.make CMakeFiles/ass.dir/Assignment/assignment1.c.s
 .PHONY : Assignment/assignment1.c.s
+
+Chapter3/MPI_recom.o: Chapter3/MPI_recom.c.o
+
+.PHONY : Chapter3/MPI_recom.o
+
+# target to build an object file
+Chapter3/MPI_recom.c.o:
+	$(MAKE) -f CMakeFiles/ch3.dir/build.make CMakeFiles/ch3.dir/Chapter3/MPI_recom.c.o
+.PHONY : Chapter3/MPI_recom.c.o
+
+Chapter3/MPI_recom.i: Chapter3/MPI_recom.c.i
+
+.PHONY : Chapter3/MPI_recom.i
+
+# target to preprocess a source file
+Chapter3/MPI_recom.c.i:
+	$(MAKE) -f CMakeFiles/ch3.dir/build.make CMakeFiles/ch3.dir/Chapter3/MPI_recom.c.i
+.PHONY : Chapter3/MPI_recom.c.i
+
+Chapter3/MPI_recom.s: Chapter3/MPI_recom.c.s
+
+.PHONY : Chapter3/MPI_recom.s
+
+# target to generate assembly for a file
+Chapter3/MPI_recom.c.s:
+	$(MAKE) -f CMakeFiles/ch3.dir/build.make CMakeFiles/ch3.dir/Chapter3/MPI_recom.c.s
+.PHONY : Chapter3/MPI_recom.c.s
 
 Chapter3/mpiex.o: Chapter3/mpiex.c.o
 
@@ -570,16 +610,17 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... edit_cache"
 	@echo "... linuxex"
 	@echo "... tutorial32"
 	@echo "... rebuild_cache"
 	@echo "... threads"
-	@echo "... tutorial3"
-	@echo "... chapter"
-	@echo "... ass_mpi"
-	@echo "... edit_cache"
 	@echo "... ass"
 	@echo "... parallel"
+	@echo "... ch3"
+	@echo "... tutorial3"
+	@echo "... ass_mpi"
+	@echo "... chapter"
 	@echo "... tutorial"
 	@echo "... MPI"
 	@echo "... Assignment/Assignment_MPI.o"
@@ -588,6 +629,9 @@ help:
 	@echo "... Assignment/assignment1.o"
 	@echo "... Assignment/assignment1.i"
 	@echo "... Assignment/assignment1.s"
+	@echo "... Chapter3/MPI_recom.o"
+	@echo "... Chapter3/MPI_recom.i"
+	@echo "... Chapter3/MPI_recom.s"
 	@echo "... Chapter3/mpiex.o"
 	@echo "... Chapter3/mpiex.i"
 	@echo "... Chapter3/mpiex.s"
