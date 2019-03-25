@@ -23,6 +23,9 @@
     <list default="true" id="bfda900e-34e8-4672-b1ef-324257ab9b64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment/Assignment_MPI.c" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment/Assignment_MPI.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ass.dir/Assignment/assignment1.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ass.dir/Assignment/assignment1.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ass" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ass.dSYM/Contents/Resources/DWARF/ass" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ass.dSYM/Contents/Resources/DWARF/ass" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,28 +39,28 @@
     <session id="496190400">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="37" />
+          <entry key="project.closed" value="39" />
           <entry key="project.open.time.0" value="11" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="15" />
-          <entry key="project.open.time.4" value="9" />
+          <entry key="project.open.time.4" value="11" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="38" />
+          <entry key="project.opened" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="57410" />
+          <entry key="c" value="58654" />
           <entry key="h" value="95" />
-          <entry key="txt" value="627" />
+          <entry key="txt" value="664" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="147" />
-          <entry key="Doxygen file" value="2" />
-          <entry key="ObjectiveC" value="57503" />
-          <entry key="PLAIN_TEXT" value="480" />
+          <entry key="Doxygen file" value="3" />
+          <entry key="ObjectiveC" value="58746" />
+          <entry key="PLAIN_TEXT" value="517" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -67,12 +70,12 @@
           <entry key="cpp" value="1" />
           <entry key="h" value="14" />
           <entry key="inc" value="1" />
-          <entry key="txt" value="10" />
+          <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CMakeLists.txt" value="10" />
+          <entry key="CMakeLists.txt" value="11" />
           <entry key="ObjectiveC" value="62" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
@@ -84,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MPIprogram/tutorial3_1.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="1320">
+              <caret line="88" column="5" selection-start-line="57" selection-start-column="4" selection-end-line="88" selection-end-column="5" />
               <folding>
                 <element signature="e#39#57#0" expanded="true" />
               </folding>
@@ -96,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assignment/assignment1.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2610">
-              <caret line="174" selection-start-line="174" selection-end-line="174" />
+            <state relative-caret-position="2445">
+              <caret line="163" column="29" selection-start-line="163" selection-start-column="29" selection-end-line="163" selection-end-column="29" />
               <folding>
                 <element signature="e#38#56#0" expanded="true" />
               </folding>
@@ -120,8 +123,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assignment/Assignment_MPI.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1013">
-              <caret line="327" column="10" lean-forward="true" selection-start-line="327" selection-start-column="10" selection-end-line="327" selection-end-column="10" />
+            <state relative-caret-position="5163">
+              <caret line="362" column="59" selection-start-line="362" selection-start-column="59" selection-end-line="362" selection-end-column="59" />
               <folding>
                 <element signature="e#40#58#0" expanded="true" />
               </folding>
@@ -174,6 +177,141 @@
       <profile-state>
         <expanded-state>
           <State />
+          <State>
+            <id>Assignment issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Bitwise operation issuesJavaScript</id>
+          </State>
+          <State>
+            <id>C/C++</id>
+          </State>
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>ClassesObjective-C</id>
+          </State>
+          <State>
+            <id>Code style issuesCSS</id>
+          </State>
+          <State>
+            <id>Code style issuesJavaScript</id>
+          </State>
+          <State>
+            <id>CoffeeScript</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Data flow analysisC/C++</id>
+          </State>
+          <State>
+            <id>ECMAScript 6 migration aidsJavaScript</id>
+          </State>
+          <State>
+            <id>Error handlingJavaScript</id>
+          </State>
+          <State>
+            <id>Flow type checkerJavaScript</id>
+          </State>
+          <State>
+            <id>FunctionsC/C++</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralC/C++</id>
+          </State>
+          <State>
+            <id>GeneralCoffeeScript</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>GeneralObjective-C</id>
+          </State>
+          <State>
+            <id>HTML</id>
+          </State>
+          <State>
+            <id>Internationalization</id>
+          </State>
+          <State>
+            <id>Invalid elementsCSS</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript function metricsJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Message resolutionObjective-C</id>
+          </State>
+          <State>
+            <id>MethodsObjective-C</id>
+          </State>
+          <State>
+            <id>Naming conventionsJavaScript</id>
+          </State>
+          <State>
+            <id>Node.jsJavaScript</id>
+          </State>
+          <State>
+            <id>Objective-C</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugsCSS</id>
+          </State>
+          <State>
+            <id>Probable bugsCoffeeScript</id>
+          </State>
+          <State>
+            <id>Probable bugsJavaScript</id>
+          </State>
+          <State>
+            <id>PropertiesObjective-C</id>
+          </State>
+          <State>
+            <id>Python</id>
+          </State>
+          <State>
+            <id>RELAX NG</id>
+          </State>
+          <State>
+            <id>RegExp</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+          <State>
+            <id>Spelling</id>
+          </State>
+          <State>
+            <id>Type checksC/C++</id>
+          </State>
+          <State>
+            <id>TypeScript</id>
+          </State>
+          <State>
+            <id>Unused codeC/C++</id>
+          </State>
+          <State>
+            <id>XML</id>
+          </State>
+          <State>
+            <id>XSLT</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
@@ -199,6 +337,11 @@
             </path>
             <path>
               <item name="MPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MPI" type="462c0819:PsiDirectoryNode" />
+              <item name="MPIprogram" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPI" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
@@ -211,7 +354,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -234,7 +377,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ass">
+  <component name="RunManager" selected="Application.ass_mpi">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -351,7 +494,9 @@
       <workItem from="1553044174265" duration="6165000" />
       <workItem from="1553122353749" duration="8290000" />
       <workItem from="1553209518371" duration="17146000" />
-      <workItem from="1553296616928" duration="1359000" />
+      <workItem from="1553296616928" duration="1797000" />
+      <workItem from="1553387263080" duration="12246000" />
+      <workItem from="1553470714377" duration="1107000" />
     </task>
     <task id="LOCAL-00001" summary="dynamic apply 2D array">
       <created>1552261766655</created>
@@ -444,11 +589,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553231918197</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="self checking function &amp; ghost array">
+      <created>1553301903238</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1553301903239</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198701000" />
+    <option name="totallyTimeSpent" value="212492000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -463,22 +615,22 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4979253" weight="0.34763947" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4979253" visible="true" weight="0.14663805" />
       <window_info id="Structure" order="1" sideWeight="0.5020747" side_tool="true" weight="0.21023965" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289855" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.28674698" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.19879518" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.20963855" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2939759" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.29156625" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007153" side_tool="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49928468" weight="0.32891566" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32650602" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" weight="0.25301206" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" weight="0.6614458" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -530,7 +682,8 @@
     <MESSAGE value="Sequential code style change(make a method for counting the number of red/blue)" />
     <MESSAGE value="numproc = 1 in MPI method" />
     <MESSAGE value="in red/blue parallel computation, finished sequential computation &amp; red color movement" />
-    <option name="LAST_COMMIT_MESSAGE" value="in red/blue parallel computation, finished sequential computation &amp; red color movement" />
+    <MESSAGE value="self checking function &amp; ghost array" />
+    <option name="LAST_COMMIT_MESSAGE" value="self checking function &amp; ghost array" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tmpi_rank.c">
@@ -638,13 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="166" selection-start-line="14" selection-start-column="166" selection-end-line="14" selection-end-column="166" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PThreads/lib/curr_time.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -686,10 +832,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="166" selection-start-line="14" selection-start-column="166" selection-end-line="14" selection-end-column="166" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MPIprogram/tutorial3_1.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="1320">
+          <caret line="88" column="5" selection-start-line="57" selection-start-column="4" selection-end-line="88" selection-end-column="5" />
           <folding>
             <element signature="e#39#57#0" expanded="true" />
           </folding>
@@ -698,8 +851,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assignment/assignment1.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="174" selection-start-line="174" selection-end-line="174" />
+        <state relative-caret-position="2445">
+          <caret line="163" column="29" selection-start-line="163" selection-start-column="29" selection-end-line="163" selection-end-column="29" />
           <folding>
             <element signature="e#38#56#0" expanded="true" />
           </folding>
@@ -718,8 +871,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assignment/Assignment_MPI.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1013">
-          <caret line="327" column="10" lean-forward="true" selection-start-line="327" selection-start-column="10" selection-end-line="327" selection-end-column="10" />
+        <state relative-caret-position="5163">
+          <caret line="362" column="59" selection-start-line="362" selection-start-column="59" selection-end-line="362" selection-end-column="59" />
           <folding>
             <element signature="e#40#58#0" expanded="true" />
           </folding>
