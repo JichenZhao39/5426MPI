@@ -232,7 +232,7 @@ int fork_stdio_buf(void){
 }
 */
 ///===============================Thread Chapters==========================================
-static void *threadFunc(void *arg){
+/*static void *threadFunc(void *arg){
     char *s = (char *)arg;
     printf("%s",s);
     return (void *)strlen(s);
@@ -277,7 +277,7 @@ int detached_attrib(void){
     if (s != 0)
         errExitEN(s,"pthread_join failed as expected");
     exit(EXIT_SUCCESS);
-}
+}*/
 //'volatile' prevents compiler optimizations of arithmetic operations on'glob'
 static volatile int glob = 0;
 static void * threadFunc3(void *arg){
@@ -291,6 +291,45 @@ static void * threadFunc3(void *arg){
     return NULL;
 }
 
+static pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
+//loop arg times incrementing 'glob'
+static void * threadFunc4(void *arg){
+    int loops = *((int *) arg);
+    int loc,j,s;
+    for (j = 0; j < loops; j++) {
+        s = pthread_mutex_lock(&mtx);
+        if (s != 0)
+            errExitEN(s,"pthread_mutex_lock");
+        loc = glob;
+        loc++;
+        glob = loc;
+        s = pthread_mutex_unlock(&mtx);
+        if (s != 0)
+            errExitEN(s,"pthread_mutex_unlock");
+    }
+    return NULL;
+}
+int thread_incr_mutex(int arg){
+    pthread_t t1,t2;
+    int loops,s;
+    loops = arg;
+    s = pthread_create(&t1,NULL,threadFunc4,&loops);
+    if (s != 0)
+        errExitEN(s,"pthread_create");
+    s = pthread_create(&t2,NULL,threadFunc4,&loops);
+    if (s != 0)
+        errExitEN(s,"pthread_create");
+    s = pthread_join(t1,NULL);
+    if (s != 0)
+        errExitEN(s,"pthread_join");
+    s = pthread_join(t2,NULL);
+    if (s != 0)
+        errExitEN(s,"pthread_join");
+
+    printf("glob = %d\n",glob);
+    exit(EXIT_SUCCESS);
+}
+
 
 int main(int argc,char *argv[]){
     //t_fork();
@@ -302,29 +341,8 @@ int main(int argc,char *argv[]){
     //simple_thread();
     //detached_attrib();
     //thread_incr(2,NULL);
-    pthread_t t1,t2;
-    int loops,s;
+    thread_incr_mutex(100000);
 
-    loops = (argc > 1) ? getInt(argv[1],GN_GT_0,"num-loops") : 10000;
-    //int arg = (argc > 1) ? getInt(argv[1],0,"arg") : 0;
-
-    s = pthread_create(&t1,NULL,threadFunc3,&loops);
-    if (s != 0)
-        errExitEN(s,"pthread_create");
-
-    s = pthread_create(&t2,NULL,threadFunc3,&loops);
-    if (s != 0)
-        errExitEN(s,"pthread_create");
-
-    s = pthread_join(t1,NULL);
-    if (s != 0)
-        errExitEN(s,"pthread_join");
-
-    s = pthread_join(t2,NULL);
-    if (s != 0)
-        errExitEN(s,"pthread_join");
-    printf("glob = %d\n",glob);
-    exit(EXIT_SUCCESS);
 
     return 0;
 }

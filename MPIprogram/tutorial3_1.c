@@ -63,6 +63,8 @@ int main(void){
         MPI_Recv(&buf[0],1,MPI_INT,numprocs - 1,0,MPI_COMM_WORLD,&status);
         //printf("接收进程ID为%d\n",numprocs-1);
 
+     MPI_Allreducing();
+
 
         ///sends buf[1] to its left neighbour
         MPI_Send(&buf[1],1,MPI_INT,numprocs - 1,0,MPI_COMM_WORLD);

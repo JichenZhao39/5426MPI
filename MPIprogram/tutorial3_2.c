@@ -54,8 +54,8 @@ int main(int argc, char **argv) {
 
         if (numprocs > 1){
             //send a submatrix to every other processes
-            q = M / numprocs;
-            r = M % numprocs;
+            q = M / numprocs;   //20*20 numproc 3   q=6
+            r = M % numprocs;  //r = 2
 
             for (i=1; i<numprocs; i++){
                 //calculate the first row.
@@ -67,6 +67,7 @@ int main(int argc, char **argv) {
                     ib = i * q + r;
                     K = q;
                 }
+
                 printf("i = %d, ib = %d, K = %d.\n", i, ib, K);
                 kn = K * N;
                 MPI_Send(&A[ib][0], kn, MPI_INT, i, 1, MPI_COMM_WORLD);

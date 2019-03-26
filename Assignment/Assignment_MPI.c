@@ -32,7 +32,7 @@ void grid_print(int **grid,int row){
     }
 }
 //count the red blue number in each tile
-bool count_red_blue(int **grid,int n,int row,int tile,int c,int n_iters) {
+int count_red_blue(int **grid,int n,int row,int tile,int c,int n_iters) {
     //first the redcount,bluecount needs to be initialize otherwise the result will be incorrect.
     int redcount=0, bluecount=0;
     float red_percentage,blue_percentage;
@@ -69,8 +69,6 @@ bool count_red_blue(int **grid,int n,int row,int tile,int c,int n_iters) {
                     printf("Red colour cell percentage has more than threshold: %f%% > %f%%(threshold)\n",red_percentage,(float)c);
                 if (blue_percentage >= (float)c)
                     printf("Blue colour cell percentage has more than threshold: %f%% > %f%%(threshold)\n",blue_percentage,(float)c);
-                //break;
-                //grid_print(grid,n);
 
                 //return finished;
                 finished = 1;
@@ -113,7 +111,7 @@ int main(int argc, char *argv[]) {
 
     // initialize MPI environment and get the total number of processes and process id.
     int n,MAX_ITRS,t,c;     //n is grid size, t represent tile grid size, c represent terminating threshold
-    int **grid,**grid_copy,*ghost_data,**ghost,**ghost1; 	/* grid[row][col] */
+    int **grid,**grid_copy,*ghost_data,**ghost,**ghost1,*grid_data; 	/* grid[row][col] */
     int finished = 0;
     int finished_result = 0;
     int n_itrs = 0;
@@ -139,21 +137,39 @@ int main(int argc, char *argv[]) {
     //get the maximum number of iterations
     MAX_ITRS = atoi(argv[4]);
 
-    //dynamic apply 2D array
-    int *grid_data = (int *)malloc(sizeof(int)*n*n);
-    grid = (int **)malloc(n* sizeof(int*));
-    for (int k = 0; k < n; k++) {
-        grid[k] = (&grid_data[n*k]);
+
+    //load balancing
+    int *load_balancing = (int *)malloc(sizeof(int)*numprocs);
+    q = (n/t) / numprocs;
+    r = (n/t) % numprocs;
+    if (r == 0){
+        for (int i = 0; i < numprocs; i++) {
+            load_balancing[i] = q;
+        }
+    } else{
+        for (int i = 0; i < r; i++) {
+            load_balancing[i] = q + 1;
+        }
+        for (int j = r; j < numprocs; j++) {
+            load_balancing[j] = q;
+        }
     }
-    if (grid == NULL){
-        fprintf(stderr, "**grid out of memory\n");
-        exit(1);
-    }
+    K = load_balancing[myid];
 
     //process 0
     if (myid == 0){
         //create the full cell grid matrix and initialize it
         //initialize the board. board_init();
+        //dynamic apply 2D array
+        grid_data = (int *)malloc(sizeof(int)*n*n);
+        grid = (int **)malloc(n* sizeof(int*));
+        for (int k = 0; k < n; k++) {
+            grid[k] = (&grid_data[n*k]);
+        }
+        if (grid == NULL){
+            fprintf(stderr, "**grid out of memory\n");
+            exit(1);
+        }
         printf("===============Board Initialize===============\n");
         board_init(grid,n);
         //pint out initialize board
@@ -161,7 +177,7 @@ int main(int argc, char *argv[]) {
         printf("===============Board Initialize===============\n");
 
         //copy grid value to grid_copy 2D array. for sequential computational
-        int *grid_data = (int *)malloc(sizeof(int)*n*n);
+        grid_data = (int *)malloc(sizeof(int)*n*n);
         grid_copy = (int **)malloc(sizeof(int *) * n);
         for (int i = 0; i < n; i++) {
             grid_copy[i] = &grid_data[n*i];
@@ -227,54 +243,41 @@ int main(int argc, char *argv[]) {
                 //count the number of red and blue in each tile
                 finished = count_red_blue(grid,n,n,t,c,n_itrs);
             }
+            grid_print(grid,n);
             MPI_Finalize();
             exit(0);
         }
-            //else if more than one process created, patition and distribute the task to all process
+        //else if more than one process created, patition and distribute the task to all process
         else if (numprocs > 1){
             //send submatrix to every other process
-            //load balancing
-            q = n / numprocs;
-            r = n % numprocs;
-            for (int i = 1; i < numprocs; i++) {
-                //calculate the first row
-                if (i < r){
-                    ib = i * (q + 1);
-                    K = q+1;
-                } else{
-                    ib = i * q + r;
-                    K = q;
+            for (int i = 0; i < (numprocs-1); i++) {
+                int number_sum = 0;
+                for (int j = 0; j < i+1; j++) {
+                    number_sum =number_sum+load_balancing[j];
                 }
-                Kn = K * n;
-                MPI_Send(&grid[ib][0],Kn,MPI_INT,i,0,MPI_COMM_WORLD);
-            }
+                K = load_balancing[i+1];
 
+                MPI_Send(&(grid[number_sum * t][0]),K*t*n,MPI_INT,i+1,0,MPI_COMM_WORLD);
+            }
         }
     } else{
         //create other processes
         //create a sub-grid from process 0
         //please fill
-        q = n / numprocs;
-        r = n % numprocs;
-        if (myid < 1)
-            K = q + 1;
-        else
-            K = q;
-        Kn = K * n;
 
         //create a sub-grid from process 0
-        int *grid_data0 = (int *)malloc(sizeof(int)*K*n);
-        grid = (int **)malloc(K* sizeof(int*));
+        int *grid_data0 = (int *)malloc(sizeof(int) * K * t * n);
+        grid = (int **)malloc(K* t * sizeof(int*));
         if (grid == NULL){
             fprintf(stderr,"**grid out of memory\n");
             exit(1);
         }
-        for (int i = 0; i < K; i++) {
+        for (int i = 0; i < K*t; i++) {
             grid[i] = &grid_data0[i*n];
         }
 
         //receive a submatrix from process 0
-        MPI_Recv(&grid[0][0],Kn,MPI_INT,0,0,MPI_COMM_WORLD,&status);
+        MPI_Recv(&grid[0][0],K*t*n,MPI_INT,0,0,MPI_COMM_WORLD,&status);
 
     }
 
@@ -285,10 +288,11 @@ int main(int argc, char *argv[]) {
     while (!finished_result && n_itrs < MAX_ITRS){
         // count the number of red and blue in each tile and check if the computation can be terminated
         n_itrs++;
-        //finished = false;
+        finished = false;
+        K = load_balancing[myid];
 
         // red color movement
-        for (i = 0; i < t; i++){
+        for (i = 0; i < t*K; i++){
             //when column 0 & 1
             if (grid[i][0] == 1 && grid[i][1] == 0){
                 grid[i][0] = 4;//move out
@@ -323,7 +327,7 @@ int main(int argc, char *argv[]) {
         }
 
         ///send last row of sub-grid to its next process
-        MPI_Sendrecv(&(grid[t-1][0]),n,MPI_INT,(myid+1)%numprocs,1,&(ghost[0][0]),n,MPI_INT,(myid-1+numprocs)%numprocs,1,MPI_COMM_WORLD,&status);
+        MPI_Sendrecv(&(grid[(K*t)-1][0]),n,MPI_INT,(myid+1)%numprocs,1,&(ghost[0][0]),n,MPI_INT,(myid-1+numprocs)%numprocs,1,MPI_COMM_WORLD,&status);
 
         ///send first row of sub-grid to its previous process
         MPI_Sendrecv(&(grid[0][0]),n,MPI_INT,(myid-1+numprocs)%numprocs,2,&(ghost1[0][0]),n,MPI_INT,(myid+1)%numprocs,2,MPI_COMM_WORLD,&status);
@@ -338,7 +342,7 @@ int main(int argc, char *argv[]) {
                 grid[1][i] = 3; //move in
             }
             //
-            for (j = 1;j < t-1; j++){
+            for (j = 1;j < (K*t)-1; j++){
                 if (grid[j][i] == 2 && grid[(j+1)%n][i] == 0){
                     grid[j][i] = 0;
                     grid[(j+1)%n][i] = 3;
@@ -360,34 +364,35 @@ int main(int argc, char *argv[]) {
             else if (grid[0][i] == 4)
                 grid[0][i] = 0;
         }
-        finished = count_red_blue(grid,n,t,t,c,n_itrs);
+        finished = count_red_blue(grid,n,t*K,t,c,n_itrs);
         //printf("===========Parallel Finished========\n");
+        if (finished)
+            printf("Process %d termited.........................\n",myid);
 
         MPI_Allreduce(&finished,&finished_result,1,MPI_INT,MPI_LOR,MPI_COMM_WORLD);
     }
 
     //all processes send the sub-grid back to process 0
     if (myid != 0){
-        MPI_Send(&(grid[0][0]),t * n, MPI_INT, 0, 3, MPI_COMM_WORLD);
-    }
-    if (myid == 0){
-        //Receive
-        for (int i = 1; i < numprocs; i++) {
-            if (i < r){
-                ib = i * (q + 1);
-                K = q+1;
-            } else{
-                ib = i * q + r;
-                K = q;
-            }
-            MPI_Recv(&grid[ib][0],Kn,MPI_INT,i,3,MPI_COMM_WORLD,&status);
-        }
-        grid_print(grid,n);
+        MPI_Send(&(grid[0][0]),K * t * n, MPI_INT, 0, 3, MPI_COMM_WORLD);
     }
     //process 0:print out the result then
     //do a sequential iterative computation using the same data set,
     //compare the two results, and print the differences if any.
     if (myid == 0){
+
+        //Receive
+        for (int i = 0; i < (numprocs-1); i++) {
+            int number_sum = 0;
+            for (int j = 0; j < i+1; j++) {
+                number_sum =number_sum+load_balancing[j];
+            }
+            K = load_balancing[i+1];
+            MPI_Recv(&(grid[number_sum * t][0]),K*t*n,MPI_INT,i+1,3,MPI_COMM_WORLD,&status);
+        }
+        printf("==========================Parallel result==============================\n");
+        grid_print(grid,n);
+        printf("=======================================================================\n");
 
         printf("\n====================Sequential computation=================\n");
         printf("\nCopy 2 dimentional array from grid[][] to grid_copy[][]\n");
@@ -448,10 +453,10 @@ int main(int argc, char *argv[]) {
             //count the number of red and blue in each tile
             finished = count_red_blue(grid_copy,n,n,t,c,n_itrs);
         }
-        printf("===========Sequential result=============\n");
+        printf("==================Sequential result==================\n");
         grid_print(grid_copy,n);
+        printf("=====================================================\n");
         self_checking(grid,grid_copy,n);
-
 
     }
     MPI_Finalize();
