@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jichen/Documents/C/MPI/PThreads/Pthread_ex.c
+sys/types.h
+-
+sys/wait.h
+-
+errors.h
+/Users/jichen/Documents/C/MPI/PThreads/errors.h
+pthread.h
+-
+
+/Users/jichen/Documents/C/MPI/PThreads/errors.h
+unistd.h
+-
+errno.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+
