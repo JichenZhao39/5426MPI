@@ -1,2 +1,2 @@
 # 5426MPI
-Parallel computation
+Parallel computation is good practicing
